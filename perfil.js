@@ -53,3 +53,37 @@ let HTML_Mascota =
 </div>`
    document.getElementById("carta_mascota").innerHTML += HTML_Mascota
 }
+
+
+registro.addEventListener("click", CatchSubMasc);
+
+//FUNCIÓN DE REGISTRO DE MASCOTAS
+async function CatchSubMasc(event){
+    event.preventDefault();
+    let masc_nombre = document.querySelector("#nombreM").value;
+    let masc_especie = document.querySelector("#especieM").value;
+    let masc_descripcion = document.querySelector("#descripcionM").value;
+    let masc_sexo = document.querySelector("#sexoM").value;
+    let masc_cumpleaños = document.querySelector("#cumpleañosM").value;
+    let masc_registro = {
+                            "nombre":masc_nombre,
+                            "especie":masc_especie,
+                            "descripcion":masc_descripcion,
+                            "sexo":masc_sexo,
+                            "cumpleaños":masc_cumpleaños
+    }
+    let msc_JSON = JSON.stringify(masc_registro);
+    let exitoso = await fetch("http://localhost:3000/mascotas",{
+        method: "POST",
+        headers: {"Content-Type": 'application/json',
+                "x-auth": localStorage.token },
+        body: msc_JSON,
+    })
+    console.log(msc_JSON);
+    if (exitoso.status == 201){
+        alert("Usuario Registrado Exitosamente")
+        $('#BtnModalRegistro').modal('hide');
+    }else{
+        alert("ERROR")
+    }
+}

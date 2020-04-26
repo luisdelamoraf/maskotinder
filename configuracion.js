@@ -15,6 +15,7 @@ async function editarUsuario(){
     let correo = valores_usr.correo;
     let Tel = valores_usr.telefono;
     let password1 = valores_usr.password;
+    let url = valores_usr.url;
 
 
     $("#NombreP").val(nombre)
@@ -23,6 +24,7 @@ async function editarUsuario(){
     $("#PasswordP").val(password1)
     $("#PassConfP").val(password1)
     $("#TelP").val(Tel)
+    $("#urlP").val(url)
 
     
     
@@ -35,12 +37,14 @@ async function ActualizarUsuario(){
     let Reg_correo = document.querySelector("#CorreoP").value;
     let Reg_tel = document.querySelector("#TelP").value;
     let Reg_Pass = document.querySelector("#PasswordP").value;
+    let Reg_url = document.querySelector("#urlP").value;
     let Reg = {
     "nombre":Reg_nombre,
     "apellido": Reg_apellido,
     "correo": Reg_correo,
     "telefono":Reg_tel,
-    "password":Reg_Pass
+    "password":Reg_Pass,
+    "url":Reg_url
 }
 let regJson = JSON.stringify(Reg);
 await fetch("http://localhost:3000/usuario",{

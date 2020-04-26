@@ -41,16 +41,11 @@
       "password": "b"
     }
   ],
-  "usuario": [
-    {
-      "id":1,
-      "nombre": "a",
-      "apellido": "a",
-      "correo": "a@a",
-      "password": "123",
-      "telefono": "3331110000",
-      "acomodos": "4",
-      "ubicacion": "Guadalajara"
-    }
-  ]
+  "usuario": {
+    "nombre": "ana",
+    "apellido": "perez",
+    "correo": "a@a",
+    "telefono": "3331110000",
+    "password": "123"
+  }
 }

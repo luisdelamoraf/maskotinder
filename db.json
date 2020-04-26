@@ -1,9 +1,8 @@
 {
-    "posts": [
-      { "id": 1, "title": "HOLA", "author": "typicode" }
+    "registro": [
+      { "nombre": "a", "apellido": "a", "correo": "a@a", "password": "123" }
     ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
+    "login": [
+      { "correo":"a@a", "password": "123" }
+    ]
   }

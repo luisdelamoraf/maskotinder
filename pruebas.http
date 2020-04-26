@@ -19,3 +19,8 @@ Content-Type: application/json
         "correo": "a@a",
         "password":"a"
 }
+
+###
+
+GET http://localhost:3000/usuario
+Content-Type: application/json

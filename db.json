@@ -31,10 +31,6 @@
   ],
   "login": [
     {
-      "correo": "a@a",
-      "password": "123"
-    },
-    {
       "id": 1,
       "correo": "a@a",
       "password": "a"
@@ -43,6 +39,18 @@
       "id": 2,
       "correo": "b@b",
       "password": "b"
+    }
+  ],
+  "usuario": [
+    {
+      "id":1,
+      "nombre": "a",
+      "apellido": "a",
+      "correo": "a@a",
+      "password": "123",
+      "telefono": "3331110000",
+      "acomodos": "4",
+      "ubicacion": "Guadalajara"
     }
   ]
 }

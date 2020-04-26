@@ -1,5 +1,6 @@
 let FormReg = document.querySelector("#ModReg");
 let registro = document.querySelector("#btnRegistro");
+let login = document.querySelector("#btnLogin")
 
 
 FormReg.addEventListener("change",()=>{
@@ -45,3 +46,33 @@ async function CatchSubmit(event){
         alert("ERROR")
     }
 }
+
+//LOGIN
+login.addEventListener("click", ValidUser)
+
+//FUNCIÓN DE LOGIN
+async function ValidUser(event){
+    event.preventDefault();
+    let login_correo = document.querySelector("#login_correo").value
+    let login_password = document.querySelector("#login_password").value
+    let login = {
+        "id": 2,
+        "correo":login_correo,
+         "password":login_password
+    }
+    let login_JSON = JSON.stringify(login);
+    console.log(login_JSON);
+    let exitoso = await fetch("http://localhost:3000/login",{
+        method: "POST",
+        headers: {"Content-Type": 'application/json'},
+                    // "x-auth": localStorage.token },
+        body: login_JSON,
+    })
+    // let tkn = await exitoso.json()
+    // console.log(tkn);
+    //TOKEN DE USUARIO
+    // localStorage.token_usr = tkn.token;
+    if (exitoso.status == 201){
+        window.location.href = "principal.html"
+    }
+    }

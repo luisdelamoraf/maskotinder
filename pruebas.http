@@ -15,6 +15,7 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
+        "id": 1,
         "correo": "a@a",
-        "password":"123"
+        "password":"a"
 }

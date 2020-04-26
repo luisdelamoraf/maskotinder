@@ -41,7 +41,7 @@
       "password": "b"
     }
   ],
-  "usuario": [
+  "usuario": 
     {
       "id":1,
       "nombre": "a",
@@ -49,8 +49,8 @@
       "correo": "a@a",
       "password": "123",
       "telefono": "3331110000",
+      "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png",
       "acomodos": "4",
       "ubicacion": "Guadalajara"
     }
-  ]
 }

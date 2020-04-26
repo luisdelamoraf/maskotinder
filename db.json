@@ -29,7 +29,18 @@
       "id": 4
     }
   ],
-  
+  "registro_mascotas":[
+    {
+      "nombre": "sky",
+      "especie": "perro",
+      "descripcion": "Soy un perrito mamalon",
+      "sexo": "macho",
+      "cumpleaños": "11/06/2010",
+      "ubicacion": "Guadalajara",
+      "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+      "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+      "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
+    }],
     "mascotas":
     {
       "nombre": "sky",
@@ -37,7 +48,10 @@
       "descripcion": "Soy un perrito mamalon",
       "sexo": "macho",
       "cumpleaños": "11/06/2010",
-      "ubicacion": "Guadalajara"
+      "ubicacion": "Guadalajara",
+      "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+      "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+      "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
     },
   
   "login": [

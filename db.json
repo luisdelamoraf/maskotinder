@@ -29,6 +29,16 @@
       "id": 4
     }
   ],
+  
+    "mascotas":
+    {
+      "nombre": "sky",
+      "especie": "perro",
+      "descripcion": "",
+      "sexo": "macho",
+      "cumpleaños": "11/06/2010"
+    },
+  
   "login": [
     {
       "id": 1,

@@ -5,7 +5,7 @@
       "nombre": "a",
       "apellido": "a",
       "correo": "a@a",
-      "password": "123"
+      "password": "a"
     },
     {
       "id": 2,
@@ -13,6 +13,20 @@
       "apellido": "b",
       "correo": "b@b",
       "password": "b"
+    },
+    {
+      "nombre": "a",
+      "apellido": "a",
+      "correo": "a@a",
+      "password": "a",
+      "id": 3
+    },
+    {
+      "nombre": "frank",
+      "apellido": "f",
+      "correo": "f@f",
+      "password": "f",
+      "id": 4
     }
   ],
   "login": [

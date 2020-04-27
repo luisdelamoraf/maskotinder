@@ -19,7 +19,7 @@ let HTML_Usuario =`<p align="right"><a href="Configuración.html">Editar</a></p>
 <div class="carta-perfil-body">
     <h4 class="card-title">${usr_JSON.nombre}</h4>
     <hr>
-    <i class="fa fa-handshake" aria-hidden="true"></i> ${usr_JSON.acomodos} acomodos exitosos
+    <i class="fa fa-paw" aria-hidden="true"></i> ${usr_JSON.num_mascotas} mascotas añadidas
     <hr>
     <i class="fa fa-envelope" aria-hidden="true"></i> ${usr_JSON.correo}
     <hr>

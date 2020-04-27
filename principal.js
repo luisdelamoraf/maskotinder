@@ -32,6 +32,7 @@ async function postFavs(){
         },
         body: regJson
     })
+    obtenerMascota()
     }
 
 async function obtenerMascota(){

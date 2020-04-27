@@ -1,5 +1,6 @@
 ObtenerUsuario()
 obtenerMascota()
+//GETmasc()
 
 async function ObtenerUsuario(){
     usr = await fetch("http://localhost:3000/usuario",{
@@ -38,6 +39,26 @@ let msct_JSON = await msct.json()
 let HTML_Mascota = 
 
 `
+<div class="carrusel_padre">
+<div id="carouselId" class="carousel slide" data-ride="carousel" >
+    <ol class="carousel-indicators">
+        <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselId" data-slide-to="1"></li>
+        <li data-target="#carouselId" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <img class="imagen_carta" src="${msct_JSON.url1}">
+        </div>
+        <div class="carousel-item">
+            <img class="imagen_carta" src="${msct_JSON.url2}" >
+        </div>
+        <div class="carousel-item">
+            <img class="imagen_carta" src="${msct_JSON.url3}">
+        </div>
+    </div>
+</div>
+</div>
 <div class="card-body">
 <h4 class="card-title" id="nombre" >${msct_JSON.nombre}</h4>
 <hr>
@@ -84,9 +105,75 @@ async function CatchSubMasc(event){
     })
     console.log(msc_JSON);
     if (exitoso.status == 201){
-        alert("Usuario Registrado Exitosamente")
-        $('#BtnModalRegistro').modal('hide');
+        alert("Mascota Registrado Exitosamente")
+        $('#model3').modal('hide');
     }else{
         alert("ERROR")
     }
+
+    
 }
+async function GETmasc(){
+    let successMasc = await fetch("http://localhost:3000/registro_mascotas",{
+        method: "GET",
+        headers: {"Content-Type": 'application/json'
+        // ,
+        // "x-auth": localStorage.token, "x-user-token": localStorage.token_usr
+    }
+    })
+
+    let x = await successMasc.json()
+
+
+    x.forEach((elemento) => {
+        GETdata()
+        async function GETdata (){
+            let datosMasc = await fetch("http://localhost:3000/registro_mascotas"+[0],{
+                method: "GET",
+                headers: {"Content-Type": 'application/json'
+                // ,
+                // "x-auth": localStorage.token, "x-user-token": localStorage.token_usr
+            }
+            })
+        let msct_JSON = await datosMasc.json()
+        let insertarMasc = `
+        <div class="carrusel_padre">
+        <div id="carouselId" class="carousel slide" data-ride="carousel" >
+            <ol class="carousel-indicators">
+                <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselId" data-slide-to="1"></li>
+                <li data-target="#carouselId" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img class="imagen_carta" src="${msct_JSON.url1}">
+                </div>
+                <div class="carousel-item">
+                    <img class="imagen_carta" src="${msct_JSON.url2}" >
+                </div>
+                <div class="carousel-item">
+                    <img class="imagen_carta" src="${msct_JSON.url3}">
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="card-body">
+        <h4 class="card-title" id="nombre" >${msct_JSON.nombre}</h4>
+        <hr>
+        <i class="fa fa-info-circle" aria-hidden="true" id="descripcion"></i>${msct_JSON.descripcion}
+        <hr>
+        <i class="fa fa-venus-mars" aria-hidden="true" ></i> ${msct_JSON.sexo}
+        <hr>
+        <i class="fa fa-birthday-cake" aria-hidden="true"></i> ${msct_JSON.cumpleaños}
+        <hr>
+        <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
+        </div>
+        </div>`
+        document.querySelector("#carta_mascota").innerHTML += insertarMasc
+
+    }
+   
+    });
+
+
+    } 

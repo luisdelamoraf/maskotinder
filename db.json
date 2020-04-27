@@ -33,7 +33,7 @@
     {
       "nombre": "sky",
       "especie": "perro",
-      "descripcion": "Soy un perrito mamalon",
+      "descripcion": "Soy un perrito bueno",
       "sexo": "macho",
       "cumpleaños": "11/06/2010",
       "ubicacion": "Guadalajara",
@@ -57,7 +57,7 @@
   "mascotas": {
     "nombre": "sky",
     "especie": "perro",
-    "descripcion": "Soy un perrito mamalon",
+    "descripcion": "Soy un perrito bueno",
     "sexo": "macho",
     "cumpleaños": "11/06/2010",
     "ubicacion": "Guadalajara",

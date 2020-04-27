@@ -78,15 +78,12 @@
     }
   ],
   "usuario": {
-    "id": 1,
-    "nombre": "a",
+    "nombre": "Juana",
     "apellido": "a",
     "correo": "a@a",
-    "password": "123",
     "telefono": "3331110000",
-    "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png",
-    "acomodos": "4",
-    "ubicacion": "Guadalajara"
+    "password": "123",
+    "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png"
   },
   "SolicitudUsr": {
     "id": 2,
@@ -112,7 +109,7 @@
   },
   "EliminarMascota": [
     {
-      "id":1,
+      "id": 1,
       "nombre": "sky",
       "especie": "perro",
       "descripcion": "Soy un perrito bueno",
@@ -122,6 +119,19 @@
       "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
       "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
       "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
+    }
+  ],
+  "EliminarUsuario": [
+    {
+      "id": 1,
+      "nombre": "a",
+      "apellido": "a",
+      "correo": "a@a",
+      "password": "123",
+      "telefono": "3331110000",
+      "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png",
+      "acomodos": "4",
+      "ubicacion": "Guadalajara"
     }
   ]
 }

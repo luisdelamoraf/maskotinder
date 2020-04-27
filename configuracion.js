@@ -1,4 +1,8 @@
 editarUsuario()
+
+let IndiceEliminar;
+let indice;
+
 async function editarUsuario(){
     console.log();
     let z = await fetch(`http://localhost:3000/usuario`,{
@@ -58,3 +62,43 @@ await fetch("http://localhost:3000/usuario",{
 })
 location.reload();
 }
+
+//ELIMINAR USUARIO
+function ValorEliminar(indice){
+    IndiceEliminar = indice
+  }
+async function EliminarUsuario(indice){
+    event.preventDefault()
+    let x = await fetch(`http://localhost:3000/EliminarUsuario/1`,{
+      method:"DELETE",
+      headers:{"Content-Type": 'application/json',
+    //   "x-auth": localStorage.token,
+    //   "x-user-token": localStorage.token_usr 
+      },
+    })
+    if (x.status == 200){
+        window.location.href = "inicio.html"
+    }
+}
+
+//MODAL DE ELIMINAR
+let HTML_ModalEliminar = ` <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Eliminar Perfil</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+    <div>
+    Esta acción eliminará permanentemente tu cuenta
+    </div>
+        <button id="btn_confirmar" type="submit" class="btn btn-success mt-3" onclick="EliminarUsuario()">Confirmar</button>
+         <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>`
+document.getElementById("modalEliminarUsuario").innerHTML = HTML_ModalEliminar

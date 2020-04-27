@@ -137,6 +137,7 @@ async function GETmasc(){
             })
         let msct_JSON = await datosMasc.json()
         let insertarMasc = `
+        <!-- Carrusel mascotas -->
         <div class="carrusel_padre">
         <div id="carouselId" class="carousel slide" data-ride="carousel" >
             <ol class="carousel-indicators">
@@ -167,13 +168,11 @@ async function GETmasc(){
         <i class="fa fa-birthday-cake" aria-hidden="true"></i> ${msct_JSON.cumpleaños}
         <hr>
         <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
+        <hr>
+        <p align="right"><a href="Configuración.html">Eliminar</a></p>
         </div>
         </div>`
         document.querySelector("#carta_mascota").innerHTML += insertarMasc
-
-    }
-   
+        }
     });
-
-
-    } 
+} 

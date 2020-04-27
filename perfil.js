@@ -1,3 +1,6 @@
+let IndiceEliminar;
+let indice;
+
 ObtenerUsuario()
 obtenerMascota()
 //GETmasc()
@@ -69,6 +72,9 @@ let HTML_Mascota =
 <i class="fa fa-birthday-cake" aria-hidden="true"></i> ${msct_JSON.cumpleaños}
 <hr>
 <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
+<hr>
+<p align="right"><buttontype="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+</p>
 </div>
 </div>`
    document.getElementById("carta_mascota").innerHTML += HTML_Mascota
@@ -77,7 +83,7 @@ let HTML_Mascota =
 let registro = document.querySelector("#submitM");
 registro.addEventListener("click", CatchSubMasc);
 
-//FUNCIÓN DE REGISTRO DE MASCOTAS
+//FUNCIÓNES DE REGISTRO DE MASCOTAS
 async function CatchSubMasc(event){
     event.preventDefault();
     let masc_nombre = document.querySelector("#nombreM").value;
@@ -169,10 +175,46 @@ async function GETmasc(){
         <hr>
         <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
         <hr>
-        <p align="right"><a href="Configuración.html">Eliminar</a></p>
+        <p align="right"><a href="">Eliminar</a></p>
         </div>
         </div>`
         document.querySelector("#carta_mascota").innerHTML += insertarMasc
         }
     });
+
 } 
+
+//ELIMINAR MASCOTAS
+function ValorEliminar(indice){
+    IndiceEliminar = indice
+  }
+async function EliminarMascota(indice){
+    event.preventDefault()
+    let x = await fetch(`http://localhost:3000/EliminarMascota/1`,{
+      method:"DELETE",
+      headers:{"Content-Type": 'application/json',
+    //   "x-auth": localStorage.token,
+    //   "x-user-token": localStorage.token_usr 
+      },
+    })
+   location.reload();
+}
+
+//MODAL DE ELIMINAR
+let HTML_ModalEliminar = ` <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">Eliminar Mascota</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <button id="btn_confirmar" type="submit" class="btn btn-success mt-3" onclick="EliminarMascota()">Confirmar</button>
+         <button type="button" class="btn btn-secondary mt-3" data-dismiss="modal">Cancelar</button>
+    </div>
+  </div>
+</div>
+</div>`
+document.getElementById("modalEliminarMascota").innerHTML = HTML_ModalEliminar

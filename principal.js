@@ -1,4 +1,39 @@
 obtenerMascota()
+
+async function postFavs(){
+    //Actualizar usr
+    
+        msct = await fetch("http://localhost:3000/mascotas",{
+        method: "GET",
+        headers: {"Content-Type": 'application/json'
+                // "x-auth": localStorage.token,
+                // "x-user-token": localStorage.token_usr 
+            }
+    })
+    let msct_JSON = await msct.json()
+        let masc_registro = {
+                                "nombre":msct_JSON.nombre,
+                                "especie":msct_JSON.especie,
+                                "descripcion":msct_JSON.descripcion,
+                                "sexo":msct_JSON.sexo,
+                                "cumpleaños":msct_JSON.cumpleaños,
+                                "id":1,
+                                "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+                                "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+                                "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
+        }
+    let regJson = JSON.stringify(masc_registro);
+    await fetch("http://localhost:3000/favoritos",{
+        method:"POST",
+        headers:{"Content-Type": 'application/json'
+        //,
+        // "x-auth": localStorage.token,
+        // "x-user-token": localStorage.token_usr 
+        },
+        body: regJson
+    })
+    }
+
 async function obtenerMascota(){
     msct = await fetch("http://localhost:3000/mascotas",{
     method: "GET",

@@ -88,6 +88,17 @@
     "acomodos": "4",
     "ubicacion": "Guadalajara"
   },
+  "SolicitudUsr": {
+    "id": 2,
+    "nombre": "Juan",
+    "apellido": "Perez",
+    "correo": "JuanPerez@perez.com",
+    "password": "123",
+    "telefono": "3311223344",
+    "url": "https://randomuser.me/api/portraits/men/2.jpg",
+    "acomodos": "4",
+    "ubicacion": "Guadalajara"
+  },
   "favoritas": {
     "nombre": "sky",
     "especie": "perro",

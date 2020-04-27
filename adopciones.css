@@ -6,6 +6,20 @@
     background: linear-gradient(to right, rgb(109, 56, 158), rgb(184, 106, 207), rgb(227, 152, 241));
 } */
 
+.carta_perfil{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.imagen_perfil{
+    margin-left: 25px;
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    border: 4px solid lightgray;
+}
+
 .chat{
     margin-top: 5%;
     margin-bottom:0%;
@@ -83,7 +97,14 @@ background-color: rgba(0,0,0,0.3) !important;
     color: white !important;
     cursor: pointer;
 }
-.contacts{
+.TituloLista{
+    color: white
+}
+.TusMascotas{
+    list-style: none;
+    padding: 0;
+}
+.TusSolicitudes{
     list-style: none;
     padding: 0;
 }

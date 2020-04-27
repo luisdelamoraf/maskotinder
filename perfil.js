@@ -10,8 +10,7 @@ async function ObtenerUsuario(){
         }
 })
 let usr_JSON = await usr.json()
-let HTML_Usuario =`
-<p align="right"><a href="Configuración.html">Editar</a></p>
+let HTML_Usuario =`<p align="right"><a href="Configuración.html">Editar</a></p>
 <img class ="imagen_perfil" src="${usr_JSON.url}" alt="">
 <div class="carta-perfil-body">
     <h4 class="card-title">${usr_JSON.nombre}</h4>

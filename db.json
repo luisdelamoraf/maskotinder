@@ -75,6 +75,11 @@
       "id": 2,
       "correo": "b@b",
       "password": "b"
+    },
+    {
+      "id": 5,
+      "correo": "a@a",
+      "password": "a"
     }
   ],
   "usuario": {
@@ -83,6 +88,8 @@
     "correo": "a@a",
     "telefono": "3331110000",
     "password": "123",
+    "num_mascotas": "2",
+    "ubicacion": "Guadalajara",
     "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png"
   },
   "SolicitudUsr": {
@@ -97,6 +104,7 @@
     "ubicacion": "Guadalajara"
   },
   "favoritas": {
+    "id": 1,
     "nombre": "sky",
     "especie": "perro",
     "descripcion": "Soy un perrito mamalon",

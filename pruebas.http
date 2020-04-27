@@ -24,3 +24,24 @@ Content-Type: application/json
 
 GET http://localhost:3000/usuario
 Content-Type: application/json
+
+###
+GET http://localhost:3000/favoritas
+Content-Type: application/json
+
+###
+POST http://localhost:3000/registro_mascotas
+Content-Type: application/json
+
+{
+    "id": 2,
+    "nombre": "Sasha",
+    "especie": "perro",
+    "descripcion": "Me gusta jugar",
+    "sexo": "Hembra",
+    "cumpleaños": "23/09/2007",
+    "ubicacion": "Guadalajara",
+    "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+    "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+    "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
+}

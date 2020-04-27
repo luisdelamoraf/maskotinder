@@ -113,11 +113,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group form">
-                        <label for="Sexo">Especie</label>
+                        <label for="especie">Especie</label>
                         <div class="input-group"></div>
                         <div class= "input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"> <i class="fas fa-bug"></i></span>
-                            <select class="custom-select" id="Sexo">
+                            <select class="custom-select" id="especieM">
                                 <option value="1">Perro</option>
                                 <option value="2">Gato</option>
                                 <option value="3">Ave</option>
@@ -125,17 +125,18 @@
                                 <option value="5">Roedor</option>
                                 <option value="6">Arácnido</option>
                                 <option value="7">Pez</option>
-                                <option value="8">Otro</option>
+                                <option value="8">Todo</option>
+                                <option value="9">Otro</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group form">
-                    <label for="Nombre">Nombre</label>
+                    <label for="Nombre" >Nombre</label>
                     <div class="input-group">
                         <div class= "input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"> <i class="fas fa-paw"></i></span>
                         </div>
-                    <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Nombre de tu mascota" aria-describedby="helpId">
+                    <input type="text" name="Nombre" id="NombreM" class="form-control" placeholder="Nombre de tu mascota" aria-describedby="helpId">
                     </div>
                     </div>
                     <div class="form-group form">
@@ -144,7 +145,7 @@
                         <div class= "input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"> <i class="fas fa-info-circle"></i></span>
                         </div>
-                    <input type="text" name="Descripción" id="Contra1" class="form-control" placeholder="Gustos, personalidad..." aria-describedby="helpId">
+                    <input type="text" name="Descripción" id="descripcionM" class="form-control" placeholder="Gustos, personalidad..." aria-describedby="helpId">
                         </div>
                     </div>
                     <div class="form-group form">
@@ -152,7 +153,7 @@
                             <div class="input-group"></div>
                             <div class= "input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fas fa-venus-mars"></i></span>
-                                <select class="custom-select" id="Sexo">
+                                <select class="custom-select" id="sexoM">
                                     <option value="M"> Macho</option>
                                     <option value="H">Hembra</option>
                                 </select>
@@ -164,11 +165,11 @@
                         <div class= "input-group-prepend">
                             <span class="input-group-text" id="basic-addon1"> <i class="fas fa-birthday-cake"></i></span>
                         </div>
-                    <input type="date" name="Cumpleaños" id="Cumpleaños" class="form-control" placeholder="Gustos, personalidad..." aria-describedby="helpId">
+                    <input type="date" name="Cumpleaños" id="cumpleañosM" class="form-control" aria-describedby="helpId">
                         </div>
                     </div>
                     <hr>
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Añadir</button>
+                    <button type="submit" class="btn btn-light" data-dismiss="modal">Añadir</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>

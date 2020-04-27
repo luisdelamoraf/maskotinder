@@ -144,6 +144,8 @@ async function GETmasc(){
         let msct_JSON = await datosMasc.json()
         let insertarMasc = `
         <!-- Carrusel mascotas -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card card-block">Card</div>
         <div class="carrusel_padre">
         <div id="carouselId" class="carousel slide" data-ride="carousel" >
             <ol class="carousel-indicators">
@@ -176,6 +178,7 @@ async function GETmasc(){
         <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
         <hr>
         <p align="right"><a href="">Eliminar</a></p>
+        </div>
         </div>
         </div>`
         document.querySelector("#carta_mascota").innerHTML += insertarMasc

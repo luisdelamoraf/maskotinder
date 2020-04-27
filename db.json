@@ -103,6 +103,17 @@
     "acomodos": "4",
     "ubicacion": "Guadalajara"
   },
+  "SolicitudUsr2": {
+    "id": 2,
+    "nombre": "Gobis",
+    "apellido": "Woo",
+    "correo": "Gobiswoo@mail.com",
+    "password": "123",
+    "telefono": "3399887766",
+    "url": "https://randomuser.me/api/portraits/women/2.jpg",
+    "acomodos": "10",
+    "ubicacion": "Michoacan"
+  },
   "favoritas": {
     "id": 1,
     "nombre": "sky",

@@ -1,4 +1,8 @@
 obtenerFavoritos()
+function alertLike(){
+    alert("Se ha enviado la solicitud")
+    location.reload()
+}
 async function obtenerFavoritos(){
 
     msct = await fetch("http://localhost:3000/favoritos/1",{
@@ -84,7 +88,7 @@ if(msct_JSON.nombre == undefined){
                     <div class="botones_likes" style="padding-left: 60px; padding-bottom: 20px;">
                         <button id="btn_superlike" type="button" class="btn btn-info btn-circle btn-xl btn_superlike" title="Quitar de favoritos" onclick="elimFavs()"><i class="fa fa-minus-circle"></i>
                         </button>
-                        <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" ><i class="fa fa-heart"></i>
+                        <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" onclick="alertLike()" ><i class="fa fa-heart"></i>
                         </button>
                     </div>
                 </div>

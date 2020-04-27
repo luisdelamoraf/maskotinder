@@ -1,5 +1,9 @@
 obtenerMascota()
 
+function alertLike(){
+    alert("Se ha enviado la solicitud")
+    location.reload()
+}
 async function postFavs(){
     //Actualizar usr
     

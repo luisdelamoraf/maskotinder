@@ -53,7 +53,7 @@ let HTML_Mascota =
    document.getElementById("carta_mascota").innerHTML += HTML_Mascota
 }
 
-
+let registro = document.querySelector("#submitM");
 registro.addEventListener("click", CatchSubMasc);
 
 //FUNCIÓN DE REGISTRO DE MASCOTAS
@@ -69,10 +69,14 @@ async function CatchSubMasc(event){
                             "especie":masc_especie,
                             "descripcion":masc_descripcion,
                             "sexo":masc_sexo,
-                            "cumpleaños":masc_cumpleaños
+                            "cumpleaños":masc_cumpleaños,
+                            "id":1,
+                            "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+                            "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+                            "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
     }
     let msc_JSON = JSON.stringify(masc_registro);
-    let exitoso = await fetch("http://localhost:3000/mascotas",{
+    let exitoso = await fetch("http://localhost:3000/registro_mascotas",{
         method: "POST",
         headers: {"Content-Type": 'application/json',
                 "x-auth": localStorage.token },

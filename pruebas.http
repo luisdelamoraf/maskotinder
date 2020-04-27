@@ -45,3 +45,8 @@ Content-Type: application/json
     "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
     "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
 }
+
+###
+
+DELETE http://localhost:3000/EliminarMascota/1
+Content-Type: application/json

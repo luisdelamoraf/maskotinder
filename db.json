@@ -19,18 +19,29 @@
       "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
       "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
       "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
+    },
+    {
+      "id": 1,
+      "nombre": "Sky",
+      "especie": "1",
+      "descripcion": "Soy un perrito bueno",
+      "sexo": "M",
+      "cumpleaños": "2010-10-10",
+      "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+      "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+      "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
     }
   ],
   "mascotas": {
-    "nombre": "Sky",
+    "nombre": "Sasha",
     "especie": "perro",
-    "descripcion": "Soy un perrito bueno",
-    "sexo": "macho",
-    "cumpleaños": "11/06/2010",
+    "descripcion": "Busco hogar",
+    "sexo": "Hembra",
+    "cumpleaños": "23/08/2007",
     "ubicacion": "Guadalajara",
-    "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-    "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-    "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
+    "url1": "https://www.mutkut.com/wp-content/uploads/2015/12/Loving-You-White-Dog-Display-Picture-300x300.jpg",
+    "url2": "https://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg",
+    "url3": "https://www.snazzyjazzypet.com/blog/wp-content/uploads/2012/05/Vineyard-Vines-By-Mascot-Whale-Collar-on-Dog-300x300.jpg"
   },
   "login": [
     {
@@ -43,10 +54,8 @@
     "nombre": "Frank",
     "apellido": "García",
     "correo": "frankg@correo.com",
-    "telefono": "",
+    "telefono": "3331110000",
     "password": "123",
-    "num_mascotas": "0",
-    "ubicacion": "",
     "url": "https://randomuser.me/api/portraits/men/1.jpg"
   },
   "SolicitudUsr": {
@@ -56,7 +65,7 @@
     "correo": "JuanPerez@perez.com",
     "password": "123",
     "telefono": "3311223344",
-    "url": "https://randomuser.me/api/portraits/men/1.jpg",
+    "url": "https://randomuser.me/api/portraits/men/2.jpg",
     "acomodos": "4",
     "ubicacion": "Guadalajara"
   },
@@ -71,31 +80,7 @@
     "acomodos": "10",
     "ubicacion": "Michoacan"
   },
-  "favoritas": {
-    "id": 1,
-    "nombre": "sky",
-    "especie": "perro",
-    "descripcion": "Soy un perrito mamalon",
-    "sexo": "macho",
-    "cumpleaños": "11/06/2010",
-    "ubicacion": "Guadalajara",
-    "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-    "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-    "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
-  },
-  "favoritos": [
-    {
-      "nombre": "sky",
-      "especie": "perro",
-      "descripcion": "Soy un perrito bueno",
-      "sexo": "macho",
-      "cumpleaños": "11/06/2010",
-      "id": 1,
-      "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-      "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-      "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
-    }
-  ],
+  "favoritos": [],
   "EliminarUsuario": [
     {
       "id": 1,

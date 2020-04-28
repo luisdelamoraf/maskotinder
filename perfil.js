@@ -39,7 +39,11 @@ async function obtenerMascota(){
         }
 })
 let msct_JSON = await msct.json()
-let HTML_Mascota = 
+    let HTML_Mascota
+if(msct_JSON.nombre == undefined){
+    HTML_Mascota = `<h6 align="center">Todavia no tienes mascotas</h6>`
+}else{
+    HTML_Mascota = 
 
 `
 <div class="carrusel_padre">
@@ -77,6 +81,7 @@ let HTML_Mascota =
 </p>
 </div>
 </div>`
+}
    document.getElementById("carta_mascota").innerHTML += HTML_Mascota
 }
 
@@ -196,7 +201,7 @@ function ValorEliminar(indice){
   }
 async function EliminarMascota(indice){
     event.preventDefault()
-    let x = await fetch(`http://localhost:3000/EliminarMascota/1`,{
+    let x = await fetch(`http://localhost:3000/registro_mascotas/1`,{
       method:"DELETE",
       headers:{"Content-Type": 'application/json',
     //   "x-auth": localStorage.token,

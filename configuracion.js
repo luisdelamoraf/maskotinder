@@ -42,6 +42,7 @@ async function ActualizarUsuario(){
     let Reg_tel = document.querySelector("#TelP").value;
     let Reg_Pass = document.querySelector("#PasswordP").value;
     let Reg_url = document.querySelector("#urlP").value;
+    let Reg_ubicacion = document.querySelector("#ubicacionP").value;
     let Reg = {
     "nombre":Reg_nombre,
     "apellido": Reg_apellido,

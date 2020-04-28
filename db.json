@@ -19,17 +19,6 @@
       "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
       "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
       "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
-    },
-    {
-      "id": 1,
-      "nombre": "Sky",
-      "especie": "1",
-      "descripcion": "Soy un perrito bueno",
-      "sexo": "M",
-      "cumpleaños": "2010-10-10",
-      "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-      "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-      "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
     }
   ],
   "mascotas": {
@@ -54,9 +43,10 @@
     "nombre": "Frank",
     "apellido": "García",
     "correo": "frankg@correo.com",
-    "telefono": "3331110000",
+    "telefono": "",
     "password": "123",
-    "url": "https://randomuser.me/api/portraits/men/1.jpg"
+    "url": "https://randomuser.me/api/portraits/men/1.jpg",
+    "num_mascotas":0
   },
   "SolicitudUsr": {
     "id": 2,

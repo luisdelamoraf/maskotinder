@@ -6,32 +6,11 @@
       "apellido": "a",
       "correo": "a@a",
       "password": "a"
-    },
-    {
-      "id": 2,
-      "nombre": "b",
-      "apellido": "b",
-      "correo": "b@b",
-      "password": "b"
-    },
-    {
-      "nombre": "a",
-      "apellido": "a",
-      "correo": "a@a",
-      "password": "a",
-      "id": 3
-    },
-    {
-      "nombre": "frank",
-      "apellido": "f",
-      "correo": "f@f",
-      "password": "f",
-      "id": 4
     }
   ],
   "registro_mascotas": [
     {
-      "nombre": "sky",
+      "nombre": "Sky",
       "especie": "perro",
       "descripcion": "Soy un perrito bueno",
       "sexo": "macho",
@@ -41,21 +20,10 @@
       "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
       "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
     },
-    {
-      "id": 2,
-      "nombre": "Sasha",
-      "especie": "perro",
-      "descripcion": "Me gusta jugar",
-      "sexo": "Hembra",
-      "cumpleaños": "23/09/2007",
-      "ubicacion": "Guadalajara",
-      "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-      "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-      "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
-    }
+
   ],
   "mascotas": {
-    "nombre": "sky",
+    "nombre": "Sky",
     "especie": "perro",
     "descripcion": "Soy un perrito bueno",
     "sexo": "macho",
@@ -70,27 +38,17 @@
       "id": 1,
       "correo": "a@a",
       "password": "a"
-    },
-    {
-      "id": 2,
-      "correo": "b@b",
-      "password": "b"
-    },
-    {
-      "id": 5,
-      "correo": "a@a",
-      "password": "a"
     }
   ],
   "usuario": {
-    "nombre": "Juana",
-    "apellido": "a",
-    "correo": "a@a",
-    "telefono": "3331110000",
+    "nombre": "Frank",
+    "apellido": "García",
+    "correo": "frankg@correo.com",
+    "telefono": "",
     "password": "123",
-    "num_mascotas": "2",
-    "ubicacion": "Guadalajara",
-    "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png"
+    "num_mascotas": "0",
+    "ubicacion": "",
+    "url": "https://randomuser.me/api/portraits/men/1.jpg"
   },
   "SolicitudUsr": {
     "id": 2,
@@ -99,7 +57,7 @@
     "correo": "JuanPerez@perez.com",
     "password": "123",
     "telefono": "3311223344",
-    "url": "https://randomuser.me/api/portraits/men/2.jpg",
+    "url": "https://randomuser.me/api/portraits/men/1.jpg",
     "acomodos": "4",
     "ubicacion": "Guadalajara"
   },

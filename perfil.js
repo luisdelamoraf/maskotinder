@@ -31,7 +31,7 @@ let HTML_Usuario =`<p align="right"><a href="Configuración.html">Editar</a></p>
 }
 
 async function obtenerMascota(){
-    msct = await fetch("http://localhost:3000/mascotas",{
+    msct = await fetch("http://localhost:3000/registro_mascotas/1",{
     method: "GET",
     headers: {"Content-Type": 'application/json'
             // "x-auth": localStorage.token,
@@ -91,16 +91,19 @@ async function CatchSubMasc(event){
     let masc_descripcion = document.querySelector("#descripcionM").value;
     let masc_sexo = document.querySelector("#sexoM").value;
     let masc_cumpleaños = document.querySelector("#cumpleañosM").value;
+    let masc_url1 = document.querySelector("#url1").value;
+    let masc_url2 = document.querySelector("#url2").value;
+    let masc_url3 = document.querySelector("#url3").value;
     let masc_registro = {
+                            "id":1,
                             "nombre":masc_nombre,
                             "especie":masc_especie,
                             "descripcion":masc_descripcion,
                             "sexo":masc_sexo,
                             "cumpleaños":masc_cumpleaños,
-                            "id":1,
-                            "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-                            "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-                            "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
+                            "url1":masc_url1,
+                            "url2":masc_url2,
+                            "url3":masc_url3 
     }
     let msc_JSON = JSON.stringify(masc_registro);
     let exitoso = await fetch("http://localhost:3000/registro_mascotas",{

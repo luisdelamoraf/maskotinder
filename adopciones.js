@@ -2,7 +2,7 @@ obtenerMascota()
 
 
 async function obtenerMascota(){
-    msct = await fetch("http://localhost:3000/mascotas",{
+    msct = await fetch("http://localhost:3000/registro_mascotas/1",{
     method: "GET",
     headers: {"Content-Type": 'application/json'
             // "x-auth": localStorage.token,

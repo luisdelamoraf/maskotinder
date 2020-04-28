@@ -36,6 +36,7 @@ async function editarUsuario(){
     let Tel = valores_usr.telefono;
     let password1 = valores_usr.password;
     let url = valores_usr.url;
+    let ubicacion = valores_usr.ubicacion;
 
 
     $("#NombreP").val(nombre)
@@ -45,6 +46,8 @@ async function editarUsuario(){
     $("#PassConfP").val(password1)
     $("#TelP").val(Tel)
     $("#urlP").val(url)
+    $("#ubicacionP").val(ubicacion)
+
 
     
     
@@ -65,7 +68,8 @@ async function ActualizarUsuario(){
     "correo": Reg_correo,
     "telefono":Reg_tel,
     "password":Reg_Pass,
-    "url":Reg_url
+    "url":Reg_url,
+    "ubicacion":Reg_ubicacion
 }
 let regJson = JSON.stringify(Reg);
 await fetch("http://localhost:3000/usuario",{

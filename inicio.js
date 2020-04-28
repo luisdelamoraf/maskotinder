@@ -56,7 +56,7 @@ async function ValidUser(event){
     let login_correo = document.querySelector("#login_correo").value
     let login_password = document.querySelector("#login_password").value
     let login = {
-        "id": 5,
+        "id": 2,
         "correo":login_correo,
          "password":login_password
     }

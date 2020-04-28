@@ -82,5 +82,5 @@ let HTML_Mascota =
     <hr>
 <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
 </div>`
-   document.getElementById("carta_mascota").innerHTML += HTML_Mascota
+   document.getElementById("carta_mascota").innerHTML = HTML_Mascota
 }

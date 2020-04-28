@@ -1,7 +1,23 @@
 editarUsuario()
+ubicacion()
 
 let IndiceEliminar;
 let indice;
+async function ubicacion(){
+  let z = await fetch(`http://localhost:3000/usuario`,{
+    method:"GET",
+    headers:{"Content-Type": 'application/json'
+    // ,
+    // "x-auth": localStorage.token,
+    // "x-user-token": localStorage.token_usr 
+    }
+})
+let valores_ubi = await z.json()
+    let HTML_ubi = `
+    <h6>Ubicación</h6>
+    <h6>${valores_ubi.ubicacion}</h6>`
+    document.querySelector("#ubicacion").innerHTML = HTML_ubi
+}
 
 async function editarUsuario(){
     console.log();

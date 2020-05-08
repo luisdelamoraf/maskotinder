@@ -6,10 +6,16 @@
       "apellido": "a",
       "correo": "a@a",
       "password": "a"
+    },
+    {
+      "nombre": "Frank",
+      "apellido": "García",
+      "correo": "frankg@correo.com",
+      "password": "123",
+      "id": 2
     }
   ],
-  "registro_mascotas": [
-  ],
+  "registro_mascotas": [],
   "mascotas": {
     "nombre": "Sasha",
     "especie": "perro",
@@ -26,16 +32,21 @@
       "id": 1,
       "correo": "a@a",
       "password": "a"
+    },
+    {
+      "id": 2,
+      "correo": "frankg@correo.com",
+      "password": "123"
     }
   ],
   "usuario": {
     "nombre": "Frank",
     "apellido": "García",
     "correo": "frankg@correo.com",
-    "telefono": "",
+    "telefono": "3331110000",
     "password": "123",
     "url": "https://randomuser.me/api/portraits/men/1.jpg",
-    "ubicacion": ""
+    "ubicacion": "Guadalajara"
   },
   "SolicitudUsr": {
     "id": 2,
@@ -59,18 +70,18 @@
     "acomodos": "10",
     "ubicacion": "Michoacan"
   },
-  "favoritos": [],
-  "EliminarUsuario": [
+  "favoritos": [
     {
+      "nombre": "Sasha",
+      "especie": "perro",
+      "descripcion": "Busco hogar",
+      "sexo": "Hembra",
+      "cumpleaños": "23/08/2007",
       "id": 1,
-      "nombre": "a",
-      "apellido": "a",
-      "correo": "a@a",
-      "password": "123",
-      "telefono": "3331110000",
-      "url": "https://es.godaddy.com/blog/wp-content/uploads//caroline-barker-BW-300x300.png",
-      "acomodos": "4",
-      "ubicacion": "Guadalajara"
+      "url1": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+      "url2": "https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+      "url3": "https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg"
     }
-  ]
+  ],
+  "EliminarUsuario": []
 }

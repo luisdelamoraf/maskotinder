@@ -11,7 +11,19 @@ router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
     
 })
 
-
+router.get('/:id', async (req,res) => {
+    let id = Number(req.params.id);
+    let usuario = await usuario.findOne({id});
+    res.status(200).send(usuario);
+});
+router.post('/',async(req,res)=> {
+    console.log(req.body);
+    let LastID = await usuario.findOne({sort: {id: -1}})
+    req.body.id = LastID.id+1;
+    console.log(req.body);
+    let usuario = await usuario(req.body).save()
+    res.status(200).send()
+});
 
 router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
         // let login = users.findIndex(a => a.correo.includes(req.body.correo));

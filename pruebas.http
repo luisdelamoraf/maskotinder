@@ -57,10 +57,10 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {      
-        "nombre": "Stringy",
-        "apellido":"Stringy",
-        "correo": "Stringy",
-        "password":"Stringy"
+        "nombre": "Stringa",
+        "apellido":"Stringa",
+        "correo": "Stringa",
+        "password":"Stringa"
 }
 
 ###
@@ -68,6 +68,9 @@ POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {      
-        "correo": "Stringo",
-        "password":"Stringy"
+        "correo": "Stringa",
+        "password":"Stringa"
 }
+###
+GET http://localhost:3000/15
+Content-Type: application/json

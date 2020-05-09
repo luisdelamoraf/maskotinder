@@ -32,10 +32,9 @@ async function CatchSubmit(event){
                             "password":usr_password
     }
     let usr_JSON = JSON.stringify(usr_registro);
-    let exitoso = await fetch("http://localhost:3000/registro",{
+    let exitoso = await fetch("http://localhost:3000/api/users",{
         method: "POST",
-        headers: {"Content-Type": 'application/json',
-                "x-auth": localStorage.token },
+        headers: {'Access-Control-Allow-Origin':'http://localhost:5500',"Content-Type": 'application/json'},
         body: usr_JSON,
     })
     console.log(usr_JSON);
@@ -73,6 +72,6 @@ async function ValidUser(event){
     //TOKEN DE USUARIO
     // localStorage.token_usr = tkn.token;
     if (exitoso.status == 201){
-        window.location.href = "principal.html"
+        window.location.href = "./public/principal.html"
     }
     }

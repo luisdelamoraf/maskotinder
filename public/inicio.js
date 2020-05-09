@@ -34,7 +34,7 @@ async function CatchSubmit(event){
     let usr_JSON = JSON.stringify(usr_registro);
     let exitoso = await fetch("http://localhost:3000/api/users",{
         method: "POST",
-        headers: {'Access-Control-Allow-Origin':'http://localhost:5500',"Content-Type": 'application/json'},
+        headers: {"Content-Type": 'application/json'},
         body: usr_JSON,
     })
     console.log(usr_JSON);

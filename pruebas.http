@@ -56,12 +56,9 @@ Content-Type: application/json
 POST http://localhost:3000/api/users
 Content-Type: application/json
 
-{       "nombre": "String",
-        "apellido":"String",
-        "correo": "String",
-        "password":"String",
-        "telefono":0,
-        "url":"String",
-        "acomodos":0,
-        "ubicacion":"String"
+{      
+        "nombre": "Stringo",
+        "apellido":"Stringo",
+        "correo": "Stringo",
+        "password":"Stringo"
 }

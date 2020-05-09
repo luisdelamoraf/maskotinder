@@ -11,6 +11,7 @@ let usuarioSchema = mongoose.Schema({
     },
     correo:{
         type:String,
+        require:true,
         unique: true
     },
     password:{
@@ -35,22 +36,18 @@ let usuarioSchema = mongoose.Schema({
     },
 })
 
-let usuario = mongoose.model('usuario', usuarioSchema);
+
 
 //Registro de usuarios
-
-function RegistrarUsuario(req){
-    let usr = usuario(req)
-    usr.telefono = 0000000000,
-    usr.url = "https://aguadilla.inter.edu/wp-content/uploads/2019/03/default-profile-300x300.png",
-    usr.acomodos= 0,
-    usr.ubicacion= "x"
-    usr.save()
-    .then((doc)=>console.log(doc))
-    .catch((err)=>console.log("Ocurrio un error",err));
+usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
+    datosUsuario.telefono = 0000000000,
+    datosUsuario.url = "https://aguadilla.inter.edu/wp-content/uploads/2019/03/default-profile-300x300.png",
+    datosUsuario.acomodos= 0,
+    datosUsuario.ubicacion= "x"
+    let nuevoUsuario = usuario(datosUsuario)
+    return nuevoUsuario.save()
 }
+let usuario = mongoose.model('usuario', usuarioSchema);
 
-
-usuario.RegistrarUsuario = RegistrarUsuario;
 module.exports = usuario
 

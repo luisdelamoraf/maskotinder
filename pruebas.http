@@ -57,8 +57,17 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {      
-        "nombre": "Stringo",
-        "apellido":"Stringo",
+        "nombre": "Stringy",
+        "apellido":"Stringy",
+        "correo": "Stringy",
+        "password":"Stringy"
+}
+
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{      
         "correo": "Stringo",
-        "password":"Stringo"
+        "password":"Stringy"
 }

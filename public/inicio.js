@@ -61,7 +61,7 @@ async function ValidUser(event){
     }
     let login_JSON = JSON.stringify(login);
     console.log(login_JSON);
-    let exitoso = await fetch("http://localhost:3000/login",{
+    let exitoso = await fetch("http://localhost:3000/api/login",{
         method: "POST",
         headers: {"Content-Type": 'application/json'},
                     // "x-auth": localStorage.token },

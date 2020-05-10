@@ -18,7 +18,7 @@ let MascotaSchema = mongoose.Schema({
     descripcion:{
         type:String,
         require:true,
-        unique: true
+        unique:false
     },
     sexo:{
         type:String,

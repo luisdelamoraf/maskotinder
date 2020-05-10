@@ -112,7 +112,7 @@ async function CatchSubMasc(event){
                             "token_usr":localStorage.token_usr
     }
     let msc_JSON = JSON.stringify(masc_registro);
-    let exitoso = await fetch("http://localhost:3000/registro_mascotas",{
+    let exitoso = await fetch("http://localhost:3000/api/mascotas",{
         method: "POST",
         headers: {"Content-Type": 'application/json',
                 "x-auth": localStorage.token_usr },

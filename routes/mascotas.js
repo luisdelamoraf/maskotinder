@@ -28,4 +28,6 @@ router.get("/api/mascotas",autenticacion, async (req, res)=>{
     let msc = await mascota.ObtenerMascota(correo)
     res.status(200).send(msc)
 })
-    module.exports = router;
+module.exports = router;
+
+

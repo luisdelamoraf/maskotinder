@@ -20,6 +20,12 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#810b91', endColorstr='#ff5e94', GradientType=1 );
 }
 /* Carta mascota principal */
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+  }
 .card{
     margin:auto;
     height:auto;
@@ -27,6 +33,7 @@
     margin-top: 1%;
     border-radius: 25px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
 }
 .carousel-inner {
     border-radius:25px;

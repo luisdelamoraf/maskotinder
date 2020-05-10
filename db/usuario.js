@@ -53,8 +53,8 @@ usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
 usuarioSchema.statics.ObtenerUsuario = async (correo)=>{
 
     let USR = await usuario.findOne({correo:correo},{_id:0})
-    console.log(USR);
     return USR
 }
+
 let usuario = mongoose.model('usuario', usuarioSchema);
 module.exports = usuario

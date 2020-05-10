@@ -72,6 +72,11 @@ Content-Type: application/json
         "password":"Stringe"
 }
 ###
+GET http://localhost:3000/api/mascotas
+Content-Type: application/json
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkxMzA1Mjh9.2f9HtgcktHyBBDqWpbdUzPaAhFwH-H1h56VJpgg-tqg
+
+###
 GET http://localhost:3000/api/users
 Content-Type: application/json
 x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkxMzA1Mjh9.2f9HtgcktHyBBDqWpbdUzPaAhFwH-H1h56VJpgg-tqg

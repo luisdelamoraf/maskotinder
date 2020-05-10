@@ -1,5 +1,18 @@
 const router = require("express").Router();
 const mascota = require("../db/mascota");
+const jwt = require("jsonwebtoken");
+let correo;
+async function autenticacion(req, res, next) {
+    
+    jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
+        if(decoded!=undefined)correo=decoded.correo;
+    })
+    if(correo != undefined){
+        next()
+    }else{
+        res.status(401).send("ERROR")
+    }
+}
     
 router.post("/api/mascotas", async (req, res) => {
     try{
@@ -10,5 +23,9 @@ router.post("/api/mascotas", async (req, res) => {
      }catch(err){
           res.status(400).send({ERROR:err});
       }
+})
+router.get("/api/mascotas",autenticacion, async (req, res)=>{
+    let msc = await mascota.ObtenerMascota(correo)
+    res.status(200).send(msc)
 })
     module.exports = router;

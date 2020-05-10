@@ -20,14 +20,12 @@ async function autenticacion(req, res, next) {
         if(decoded!=undefined)correo=decoded.correo;
     })
     if(correo != undefined){
-        console.log("ifCorreo");
         next()
     }else{
         res.status(401).send("ERROR")
     }
 }
 router.get("/api/users",autenticacion, async (req, res)=>{
-    console.log("JEJEJ");
     let usr = await usuario.ObtenerUsuario(correo)
     res.status(200).send(usr)
 })

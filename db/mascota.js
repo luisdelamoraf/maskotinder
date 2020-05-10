@@ -59,6 +59,11 @@ MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     let nuevaMascota = mascota(datosMascota)
     return nuevaMascota.save()
 }
+MascotaSchema.statics.ObtenerMascota = async (correo)=>{
+    let USR = await usuario.findOne({correo:correo},{_id:0,id:1})
+    let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
+    return MSC
+}
 
 
 

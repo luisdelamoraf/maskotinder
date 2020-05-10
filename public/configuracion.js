@@ -21,12 +21,10 @@ let valores_ubi = await z.json()
 
 async function editarUsuario(){
     console.log();
-    let z = await fetch(`http://localhost:3000/usuario`,{
+    let z = await fetch(`http://localhost:3000/api/users`,{
         method:"GET",
-        headers:{"Content-Type": 'application/json'
-        // ,
-        // "x-auth": localStorage.token,
-        // "x-user-token": localStorage.token_usr 
+        headers:{"Content-Type": 'application/json',
+        "x-user-token": localStorage.token_usr 
         }
     })
     let valores_usr = await z.json()
@@ -72,12 +70,10 @@ async function ActualizarUsuario(){
     "ubicacion":Reg_ubicacion
 }
 let regJson = JSON.stringify(Reg);
-await fetch("http://localhost:3000/usuario",{
+await fetch("http://localhost:3000/api/users",{
     method:"PUT",
-    headers:{"Content-Type": 'application/json'
-    //,
-    // "x-auth": localStorage.token,
-    // "x-user-token": localStorage.token_usr 
+    headers:{"Content-Type": 'application/json',
+      "x-user-token": localStorage.token_usr 
     },
     body: regJson
 })

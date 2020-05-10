@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 let usuarioSchema = mongoose.Schema({
     id:{
         type:Number,
@@ -49,12 +50,29 @@ usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
     return nuevoUsuario.save()
 }
 
-
+//Obtención de perfil
 usuarioSchema.statics.ObtenerUsuario = async (correo)=>{
 
     let USR = await usuario.findOne({correo:correo},{_id:0})
     console.log(USR);
     return USR
 }
+
+// Actualizar perfil
+usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
+    let ActualizarUsuario = await usuario.findOneAndUpdate({correo:datosUsuario.correo},{
+        nombre: datosUsuario.nombre,
+        apellido: datosUsuario.apellido,
+        password: datosUsuario.password,
+        telefono: datosUsuario.telefono,
+        url: datosUsuario.url,
+        ubicacion: datosUsuario.ubicacion 
+    })
+    return ActualizarUsuario
+}
+
+
+
+
 let usuario = mongoose.model('usuario', usuarioSchema);
 module.exports = usuario

@@ -11,25 +11,21 @@ router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
         res.status(201).send(usr);
      }catch(err){
           res.status(400).send({ERROR:err});
-      }
-    
+      } 
 })
-async function autenticacion(req, res, next) {
-    
-    jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
-        if(decoded!=undefined)correo=decoded.correo;
-    })
-    if(correo != undefined){
-        console.log("ifCorreo");
-        next()
-    }else{
-        res.status(401).send("ERROR")
-    }
-}
+
 router.get("/api/users",autenticacion, async (req, res)=>{
-    console.log("JEJEJ");
     let usr = await usuario.ObtenerUsuario(correo)
     res.status(200).send(usr)
+})
+
+router.put("/api/users",autenticacion, async (req,res)=>{
+    try{
+        let usr = await usuario.ActualizarUsuario(req.body)
+        res.status(200).send(usr)
+    }catch(err){
+        res.status(400).send({ERROR:err});
+    }
 })
 
 // router.get('/:id', async (req,res) => {
@@ -125,25 +121,16 @@ async function validarExistenciaLogin(req, res, next) {
     }
 
 }
-
-
-
-    //     if (users[login].password == req.body.password) {
-    //         console.log("Middleware: validarExistenciaLogin COMPLETADO");
-    //         next();
-    //     } else {
-    //         res.status(401).send({
-    //             ERROR: "No coinciden usuario y contraseña"
-    //         });
-    //     }
-    // } else {
-    //     res.status(401).send({
-    //         ERROR: "No coinciden usuario y contraseña"
-    //     });
-    // }
-
-    // if (users.find(a => a.correo.includes(req.body.correo))) {
-    //     let login = users.findIndex(a => a.correo.includes(req.body.correo))
-        
+  
+async function autenticacion(req, res, next) { 
+    jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
+        if(decoded!=undefined)correo=decoded.correo;
+    })
+    if(correo != undefined){
+        next()
+    }else{
+        res.status(401).send("ERROR")
+    }
+}
 
 module.exports = router;

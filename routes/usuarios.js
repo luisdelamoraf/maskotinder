@@ -35,7 +35,7 @@ router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
         //     fs.writeFileSync('users.json', JSON.stringify(users));
         //     users = JSON.parse(fs.readFileSync('users.json'));
         // }
-        res.status(201).send();
+        res.status(200).send();
     })
 
 
@@ -100,13 +100,17 @@ function validarLogin(req, res, next) {
     }
 }
 
-function validarExistenciaLogin(req, res, next) {
+async function validarExistenciaLogin(req, res, next) {
     console.log("Middleware: validarExistenciaLogin");
-    usuario.findOne({correo:req.body.correo, password:req.body.password},(err,doc)=>{
-        if (err) throw err;
-    console.log(doc.correo, doc.password);
-    })
+    let correcto = await usuario.findOne({correo:req.body.correo, password:req.body.password})
+    if(correcto==null){
+        res.status(404).send({ERROR: "Usuario no coincide"})
+    }else{
+        next()
+    }
+
 }
+
     //     if (users[login].password == req.body.password) {
     //         console.log("Middleware: validarExistenciaLogin COMPLETADO");
     //         next();

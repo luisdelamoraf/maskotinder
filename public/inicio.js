@@ -71,7 +71,7 @@ async function ValidUser(event){
     // console.log(tkn);
     //TOKEN DE USUARIO
     // localStorage.token_usr = tkn.token;
-    if (exitoso.status == 201){
-        window.location.href = "./public/principal.html"
+    if (exitoso.status == 200){
+        window.location.href = "./principal.html"
     }
     }

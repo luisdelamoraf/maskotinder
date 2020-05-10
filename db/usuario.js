@@ -40,8 +40,6 @@ let usuarioSchema = mongoose.Schema({
     },
 })
 
-
-
 //Registro de usuarios
 usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
     datosUsuario.telefono = 0000000000,

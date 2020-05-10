@@ -73,3 +73,4 @@ async function ValidUser(event){
         window.location.href = "./principal.html"
     }
     }
+   

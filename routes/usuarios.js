@@ -33,6 +33,8 @@ router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
         res.status(200).send({token});
     })
 
+    
+
 
 
 //Middlewares a rutas
@@ -105,6 +107,8 @@ async function validarExistenciaLogin(req, res, next) {
     }
 
 }
+
+
 
     //     if (users[login].password == req.body.password) {
     //         console.log("Middleware: validarExistenciaLogin COMPLETADO");

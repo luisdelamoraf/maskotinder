@@ -74,3 +74,20 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/15
 Content-Type: application/json
+
+###
+POST http://localhost:3000/api/mascotas
+Content-Type: application/json
+
+{
+        "nombre":"rufuslocus",
+        "especie":"3",
+        "descripcion":"locochon",
+        "sexo":"M",
+        "cumpleaños":"12/12/2020",
+        "ubicacion":"Guadalajara",
+        "url1":"https://www.mutkut.com/wp-content/uploads/2015/12/Loving-You-White-Dog-Display-Picture-300x300.jpg",
+        "url2":"https://dogtowndogtraining.com/wp-content/uploads/2012/06/300x300-061-e1340955308953.jpg",
+        "url3":"https://www.snazzyjazzypet.com/blog/wp-content/uploads/2012/05/Vineyard-Vines-By-Mascot-Whale-Collar-on-Dog-300x300.jpg",
+        "token_usr":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkwODA3MzR9.hif8apBN-tKSruHjt-l2gRImgBgv8BYoC0ySW5ZF8z0"
+    }

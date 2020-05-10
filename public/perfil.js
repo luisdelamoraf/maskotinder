@@ -100,7 +100,7 @@ async function CatchSubMasc(event){
     let masc_url2 = document.querySelector("#url2").value;
     let masc_url3 = document.querySelector("#url3").value;
     let masc_registro = {
-                            "id":1,
+                            
                             "nombre":masc_nombre,
                             "especie":masc_especie,
                             "descripcion":masc_descripcion,
@@ -108,13 +108,14 @@ async function CatchSubMasc(event){
                             "cumpleaños":masc_cumpleaños,
                             "url1":masc_url1,
                             "url2":masc_url2,
-                            "url3":masc_url3 
+                            "url3":masc_url3,
+                            "token_usr":localStorage.token_usr
     }
     let msc_JSON = JSON.stringify(masc_registro);
     let exitoso = await fetch("http://localhost:3000/registro_mascotas",{
         method: "POST",
         headers: {"Content-Type": 'application/json',
-                "x-auth": localStorage.token },
+                "x-auth": localStorage.token_usr },
         body: msc_JSON,
     })
     console.log(msc_JSON);
@@ -201,7 +202,7 @@ function ValorEliminar(indice){
   }
 async function EliminarMascota(indice){
     event.preventDefault()
-    let x = await fetch(`http://localhost:3000/registro_mascotas/1`,{
+    let x = await fetch(`http://localhost:3000/api/mascotas/1`,{
       method:"DELETE",
       headers:{"Content-Type": 'application/json',
     //   "x-auth": localStorage.token,

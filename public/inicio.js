@@ -55,22 +55,20 @@ async function ValidUser(event){
     let login_correo = document.querySelector("#login_correo").value
     let login_password = document.querySelector("#login_password").value
     let login = {
-        "id": 2,
         "correo":login_correo,
          "password":login_password
     }
     let login_JSON = JSON.stringify(login);
-    console.log(login_JSON);
     let exitoso = await fetch("http://localhost:3000/api/login",{
         method: "POST",
         headers: {"Content-Type": 'application/json'},
-                    // "x-auth": localStorage.token },
-        body: login_JSON,
+        body: login_JSON
     })
-    // let tkn = await exitoso.json()
-    // console.log(tkn);
+    console.log(exitoso);
+    let tkn = await exitoso.json()
+    console.log(tkn);
     //TOKEN DE USUARIO
-    // localStorage.token_usr = tkn.token;
+    localStorage.token_usr = tkn.token;
     if (exitoso.status == 200){
         window.location.href = "./principal.html"
     }

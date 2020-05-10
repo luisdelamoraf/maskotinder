@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const usuario = require("../db/usuario");
+const jwt = require("jsonwebtoken");
 
 router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
     try{
@@ -28,14 +29,8 @@ router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
 // });
 
 router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
-        // let login = users.findIndex(a => a.correo.includes(req.body.correo));
-        // if (!users[login].token) {
-        //     let login = users.findIndex(a => a.correo.includes(req.body.correo));
-        //     users[login].token = randomize('Aa0', '10') + "-" + users[login].id;
-        //     fs.writeFileSync('users.json', JSON.stringify(users));
-        //     users = JSON.parse(fs.readFileSync('users.json'));
-        // }
-        res.status(200).send();
+    let token = jwt.sign({correo:req.body.correo}, 'Labredes1');
+        res.status(200).send({token});
     })
 
 

@@ -44,7 +44,6 @@ let usuarioSchema = mongoose.Schema({
 
 //Registro de usuarios
 usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
-    datosUsuario.id = 1
     datosUsuario.telefono = 0000000000,
     datosUsuario.url = "https://aguadilla.inter.edu/wp-content/uploads/2019/03/default-profile-300x300.png",
     datosUsuario.acomodos= 0,
@@ -53,7 +52,5 @@ usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
     return nuevoUsuario.save()
 }
 let usuario = mongoose.model('usuario', usuarioSchema);
-console.log(usuario);
-
 module.exports = usuario
 

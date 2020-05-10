@@ -2,28 +2,30 @@ const router = require("express").Router();
 const usuario = require("../db/usuario");
 
 router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
-    //  try{
+    try{
+        let LastDoc = await usuario.find({ }, {_id:0, id:1}).sort({id:-1}).limit(1);
+        req.body.id = LastDoc[0].id+1;
         let usr = await usuario.RegistrarUsuario(req.body)
         res.status(201).send(usr);
-    //  }catch(err){
-    //      res.status(400).send({ERROR:"HOLA"});
-    //  }
+     }catch(err){
+          res.status(400).send({ERROR:err});
+      }
     
 })
 
-router.get('/:id', async (req,res) => {
-    let id = Number(req.params.id);
-    let usuario = await usuario.findOne({id});
-    res.status(200).send(usuario);
-});
-router.post('/',async(req,res)=> {
-    console.log(req.body);
-    let LastID = await usuario.findOne({sort: {id: -1}})
-    req.body.id = LastID.id+1;
-    console.log(req.body);
-    let usuario = await usuario(req.body).save()
-    res.status(200).send()
-});
+// router.get('/:id', async (req,res) => {
+//     let id = Number(req.params.id);
+//     let usuario = await usuario.findOne({id});
+//     res.status(200).send(usuario);
+// });
+// router.post('/',async(req,res)=> {
+//     console.log(req.body);
+//     let LastID = await usuario.findOne({sort: {id: -1}})
+//     req.body.id = LastID.id+1;
+//     console.log(req.body);
+//     let usuario = await usuario(req.body).save()
+//     res.status(200).send()
+// });
 
 router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
         // let login = users.findIndex(a => a.correo.includes(req.body.correo));

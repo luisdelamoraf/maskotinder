@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const usuario = require("../db/usuario");
 const jwt = require("jsonwebtoken");
+let correo
 
 router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
     try{
@@ -12,6 +13,23 @@ router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
           res.status(400).send({ERROR:err});
       }
     
+})
+async function autenticacion(req, res, next) {
+    
+    jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
+        if(decoded!=undefined)correo=decoded.correo;
+    })
+    if(correo != undefined){
+        console.log("ifCorreo");
+        next()
+    }else{
+        res.status(401).send("ERROR")
+    }
+}
+router.get("/api/users",autenticacion, async (req, res)=>{
+    console.log("JEJEJ");
+    let usr = await usuario.ObtenerUsuario(correo)
+    res.status(200).send(usr)
 })
 
 // router.get('/:id', async (req,res) => {

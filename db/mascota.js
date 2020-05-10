@@ -51,11 +51,9 @@ let MascotaSchema = mongoose.Schema({
 
 MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     let correo
-    console.log(datosMascota);
     jwt.verify(datosMascota.token_usr, "Labredes1",function(err, decoded) {
         if(decoded!=undefined)correo=decoded.correo;
     })
-    console.log(correo);
     let idUSR = await usuario.findOne({correo:correo},{_id:0,id:1})
     datosMascota.id_dueño = idUSR.id
     let nuevaMascota = mascota(datosMascota)

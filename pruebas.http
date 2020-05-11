@@ -134,4 +134,13 @@ x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiO
         "token_usr":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkwODA3MzR9.hif8apBN-tKSruHjt-l2gRImgBgv8BYoC0ySW5ZF8z0",
         "interesados":[2],
         "Favoritos":[]
-    }
+}
+
+###
+DELETE http://localhost:3000/api/mascotas
+Content-Type: application/json
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJhIiwiaWF0IjoxNTg5MTU3MTE0fQ.B7nn-WB6hwcwoC79c-YEMXwWnoYUPxWH7tTdckLdCVQ
+
+{
+        "i":"111"
+}

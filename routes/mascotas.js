@@ -3,7 +3,7 @@ const mascota = require("../db/mascota");
 const jwt = require("jsonwebtoken");
 let correo;
  
-router.post("/mascotas",autenticacion, async (req, res) => {
+router.post("/api/mascotas",autenticacion, async (req, res) => {
     try{
         let LastDoc = await mascota.find({ }, {_id:0, id_mascota:1}).sort({id_mascota:-1}).limit(1);
         req.body.id_mascota = LastDoc[0].id_mascota+1;
@@ -13,23 +13,32 @@ router.post("/mascotas",autenticacion, async (req, res) => {
           res.status(400).send({ERROR:err});
       }
 })
-router.get("/mascotas",autenticacion, async (req, res)=>{
+router.get("/api/mascotas",autenticacion, async (req, res)=>{
     let msc = await mascota.ObtenerMascota(correo)
     res.status(200).send(msc)
 })
 
-router.get("/CatalogoMascotas",autenticacion, async (req,res)=>{
+router.get("/api/CatalogoMascotas",autenticacion, async (req,res)=>{
     let ctlg = await mascota.MostrarMascotas()
     res.status(200).send(ctlg)
 })
 
-router.put("/mascotas",autenticacion, async (req, res) =>{
+router.put("/api/mascotas",autenticacion, async (req, res) =>{
     try{
         let Msc = await mascota.SolicitarMascota(req.body)
         res.status(201).send(Msc);
      }catch(err){
           res.status(400).send({ERROR:err});
       }
+})
+
+router.delete("/api/mascotas",autenticacion, async (req,res)=>{
+    try{
+        await mascota.EliminarMascota(req.body.i)
+        res.status(200).send({OK:"Mascota eliminada correctamente"})
+    }catch(err){
+        res.status(400).send({ERROR:err});
+    }
 })
 
 //Middleware a rutas

@@ -1,5 +1,5 @@
 obtenerMascota()
-let cont =4
+let cont =0
 let msct_JSON
 function alertLike(){
     alert("Se ha enviado la solicitud")

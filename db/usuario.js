@@ -70,7 +70,10 @@ usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
     return ActualizarUsuario
 }
 
-
+//Eliminar perfil
+usuarioSchema.statics.EliminarUsuario = async(correo)=>{
+    await usuario.findOneAndDelete({correo:correo})
+}
 
 
 let usuario = mongoose.model('usuario', usuarioSchema);

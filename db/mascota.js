@@ -90,6 +90,12 @@ MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
     return Solicitada
 }
 
+//Eliminar mascota
+MascotaSchema.statics.EliminarMascota = async(i)=>{
+    
+ await usuario.findOneAndDelete({id_mascota:i})
+}
+
 
 let mascota = mongoose.model("mascota",MascotaSchema)
 module.exports = mascota

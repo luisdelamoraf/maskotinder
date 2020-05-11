@@ -38,10 +38,8 @@ async function obtenerMascota() {
             "x-user-token": localStorage.token_usr
         }
     })
-    let x = await msct.json()
-    console.log(x);
+    let x = await msct.json();
     x.forEach((elemento) => {
-        console.log(elemento);
             let HTML_Mascota
             if (elemento.nombre == undefined) {
                 HTML_Mascota = `<h6 align="center">Todavia no tienes mascotas</h6>`
@@ -81,7 +79,7 @@ async function obtenerMascota() {
     <hr>
     <i class="fa fa-map-marker" aria-hidden="true"></i> ${elemento.ubicacion}
     <hr>
-    <p align="right"><buttontype="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#modalEliminar"><i class="fa fa-trash"></i></button>
+    <p align="right"><buttontype="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#modalEliminar" onclick="ValorEliminar(${elemento.id_mascota})"><i class="fa fa-trash"></i></button>
     </p>
     </div>
     </div>
@@ -89,10 +87,7 @@ async function obtenerMascota() {
     `
             }
             document.getElementById("insertarCartaMasc").innerHTML += HTML_Mascota
-        
-
     });
-
 }
 
 let registro = document.querySelector("#submitM");
@@ -130,10 +125,9 @@ async function CatchSubMasc(event) {
         },
         body: msc_JSON,
     })
-    console.log(msc_JSON);
     if (exitoso.status == 201) {
         alert("Mascota Registrado Exitosamente")
-        $('#model3').modal('hide');
+        location.reload();
     } else {
         alert("ERROR")
     }
@@ -144,9 +138,8 @@ async function GETmasc() {
     let successMasc = await fetch("http://localhost:3000/registro_mascotas", {
         method: "GET",
         headers: {
-            "Content-Type": 'application/json'
-            // ,
-            // "x-auth": localStorage.token, "x-user-token": localStorage.token_usr
+            "Content-Type": 'application/json' ,
+            "x-user-token": localStorage.token_usr
         }
     })
 
@@ -214,17 +207,29 @@ async function GETmasc() {
 function ValorEliminar(indice) {
     IndiceEliminar = indice
 }
-async function EliminarMascota(indice) {
+async function EliminarMascota() {
     event.preventDefault()
-    let x = await fetch(`http://localhost:3000/api/mascotas/1`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": 'application/json',
-            //   "x-auth": localStorage.token,
-            //   "x-user-token": localStorage.token_usr 
-        },
-    })
-    location.reload();
+    let xhr = new XMLHttpRequest();
+    xhr.open('DELETE', "/api/mascotas");
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('x-user-token', localStorage.token_usr);
+    xhr.send([JSON.stringify({"i":IndiceEliminar})]);
+    xhr.onload = function () {
+        if (xhr.status == 200) { 
+            location.reload();
+        } else {
+            console.log(JSON.parse(xhr.response));   
+        }
+    }
+    // let x= await fetch(`http://localhost:3000/api/mascotas`, {
+    //     method: "DELETE",
+    //     headers: {
+    //         "Content-Type": 'application/json',
+    //         "x-user-token": localStorage.token_usr 
+    //     },
+    //     body: {"i":IndiceEliminar}
+    // })
+
 }
 
 //MODAL DE ELIMINAR

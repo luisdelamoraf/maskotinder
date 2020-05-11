@@ -97,3 +97,8 @@ Content-Type: application/json
         "url3":"https://www.snazzyjazzypet.com/blog/wp-content/uploads/2012/05/Vineyard-Vines-By-Mascot-Whale-Collar-on-Dog-300x300.jpg",
         "token_usr":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkwODA3MzR9.hif8apBN-tKSruHjt-l2gRImgBgv8BYoC0ySW5ZF8z0"
     }
+###
+
+GET http://localhost:3000/api/CatalogoMascotas
+Content-Type: application/json
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkxMzA1Mjh9.2f9HtgcktHyBBDqWpbdUzPaAhFwH-H1h56VJpgg-tqg

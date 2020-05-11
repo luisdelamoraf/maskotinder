@@ -48,14 +48,14 @@ async function obtenerMascota() {
             } else {
                 HTML_Mascota =
 
-                    `<div class="card" id="carta_mascota">       
-                    
+                    `      
+                    <div class="card" id="carta_mascota"> 
     <div class="carrusel_padre">
-    <div id="carouselId" class="carousel slide" data-ride="carousel" >
+    <div id="carouselId${elemento.id_mascota}" class="carousel slide" data-ride="carousel" >
         <ol class="carousel-indicators">
-            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselId" data-slide-to="1"></li>
-            <li data-target="#carouselId" data-slide-to="2"></li>
+            <li data-target="#carouselId${elemento.id_mascota}" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselId${elemento.id_mascota}" data-slide-to="1"></li>
+            <li data-target="#carouselId${elemento.id_mascota}" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
@@ -85,7 +85,8 @@ async function obtenerMascota() {
     </p>
     </div>
     </div>
-    </div>`
+    </div>
+    `
             }
             document.getElementById("insertarCartaMasc").innerHTML += HTML_Mascota
         

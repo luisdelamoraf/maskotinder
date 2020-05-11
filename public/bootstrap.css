@@ -73,6 +73,7 @@
     border: 0pt;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 3%;
+    
 }
 .btn_superlike{
     background: rgba(94,255,234,1);
@@ -128,6 +129,9 @@
     height:auto;
     width: 300px;
     border-radius: 25px;
+}
+#carta_mascota{
+    margin: 5%;
 }
 .columna_perfil{
     width: 30%;

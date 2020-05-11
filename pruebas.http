@@ -57,10 +57,10 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {      
-        "nombre": "Stringy",
-        "apellido":"Stringy",
-        "correo": "Stringy",
-        "password":"Stringy"
+        "nombre": "a",
+        "apellido":"a",
+        "correo": "a",
+        "password":"a"
 }
 
 ###
@@ -68,8 +68,8 @@ POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {      
-        "correo": "Stringe",
-        "password":"Stringe"
+        "correo": "a",
+        "password":"a"
 }
 ###
 GET http://localhost:3000/api/mascotas
@@ -97,3 +97,9 @@ Content-Type: application/json
         "url3":"https://www.snazzyjazzypet.com/blog/wp-content/uploads/2012/05/Vineyard-Vines-By-Mascot-Whale-Collar-on-Dog-300x300.jpg",
         "token_usr":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkwODA3MzR9.hif8apBN-tKSruHjt-l2gRImgBgv8BYoC0ySW5ZF8z0"
     }
+
+###
+
+DELETE http://localhost:3000/api/users
+Content-Type: application/json
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJhIiwiaWF0IjoxNTg5MTU3MTE0fQ.B7nn-WB6hwcwoC79c-YEMXwWnoYUPxWH7tTdckLdCVQ

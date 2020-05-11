@@ -13,17 +13,7 @@ router.post("/api/users",validarBody, validarExistencia, async (req, res) => {
           res.status(400).send({ERROR:err});
       } 
 })
-async function autenticacion(req, res, next) {
-    
-    jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
-        if(decoded!=undefined)correo=decoded.correo;
-    })
-    if(correo != undefined){
-        next()
-    }else{
-        res.status(401).send("ERROR")
-    }
-}
+
 router.get("/api/users",autenticacion, async (req, res)=>{
     let usr = await usuario.ObtenerUsuario(correo)
     res.status(200).send(usr)
@@ -38,6 +28,14 @@ router.put("/api/users",autenticacion, async (req,res)=>{
     }
 })
 
+router.delete("/api/users",autenticacion, async (req,res)=>{
+    try{
+        await usuario.EliminarUsuario(correo)
+        res.status(200).send({OK:"Usuario eliminado correctamente"})
+    }catch(err){
+        res.status(400).send({ERROR:err});
+    }
+})
 // router.get('/:id', async (req,res) => {
 //     let id = Number(req.params.id);
 //     let usuario = await usuario.findOne({id});
@@ -54,6 +52,7 @@ router.put("/api/users",autenticacion, async (req,res)=>{
 
 router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
     let token = jwt.sign({correo:req.body.correo}, 'Labredes1');
+        console.log(token);
         res.status(200).send({token});
     })
 
@@ -133,10 +132,12 @@ async function validarExistenciaLogin(req, res, next) {
 }
   
 async function autenticacion(req, res, next) { 
+    console.log("Middleware: autenticacion");
     jwt.verify(req.get("x-user-token"), "Labredes1",function(err, decoded) {
         if(decoded!=undefined)correo=decoded.correo;
     })
     if(correo != undefined){
+        console.log("Middleware: autenticacion COMPLETADO");
         next()
     }else{
         res.status(401).send("ERROR")

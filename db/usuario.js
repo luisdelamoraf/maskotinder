@@ -67,6 +67,7 @@ usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
         url: datosUsuario.url,
         ubicacion: datosUsuario.ubicacion 
     })
+    console.log(ActualizarUsuario);
     return ActualizarUsuario
 }
 

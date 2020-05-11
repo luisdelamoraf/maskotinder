@@ -4,7 +4,7 @@ const jwt = require ("jsonwebtoken");
 
 let MascotaSchema = mongoose.Schema({
     id_mascota:{
-        type:Number,
+        type:String,
         require:true
     },
     nombre:{
@@ -12,7 +12,7 @@ let MascotaSchema = mongoose.Schema({
         require:true
     },
     especie:{
-        type:Number,
+        type:String,
         require:true
     },
     descripcion:{
@@ -44,11 +44,16 @@ let MascotaSchema = mongoose.Schema({
         require:true
     },
     id_dueño:{
-        type:Number,
+        type:String,
         require:true
     },
     Favoritos:{
-        type:Array
+        type:Array,
+        require:true
+    },
+    interesados:{
+        type:Array,
+        require:true
     }
 })
 
@@ -59,9 +64,12 @@ MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     })
     let idUSR = await usuario.findOne({correo:correo},{_id:0,id:1})
     datosMascota.id_dueño = idUSR.id
+    datosMascota.interesados=[]
+    datosMascota.Favoritos=[]
     let nuevaMascota = mascota(datosMascota)
     return nuevaMascota.save()
 }
+
 MascotaSchema.statics.ObtenerMascota = async (correo)=>{
     let USR = await usuario.findOne({correo:correo},{_id:0,id:1})
     let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
@@ -69,12 +77,18 @@ MascotaSchema.statics.ObtenerMascota = async (correo)=>{
 }
 
 MascotaSchema.statics.MostrarMascotas = async () =>{
-    let todas = await mascota.find({})
-    console.log(todas);
+    let todas = await mascota.find({},{_id:0,__v:0})
     return todas
 }
 
-
+MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
+    console.log(datosMascota);
+    let Solicitada = await mascota.findOneAndUpdate({id_mascota:datosMascota.id_mascota},{
+        interesados: datosMascota.interesados
+    })
+    console.log(Solicitada);
+    return Solicitada
+}
 
 
 let mascota = mongoose.model("mascota",MascotaSchema)

@@ -125,7 +125,7 @@ async function CatchSubMasc(event) {
         method: "POST",
         headers: {
             "Content-Type": 'application/json',
-            "x-auth": localStorage.token_usr
+            "x-user-token": localStorage.token_usr
         },
         body: msc_JSON,
     })

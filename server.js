@@ -10,8 +10,9 @@ const mascotasRouter = require("./routes/mascotas");
 app.use(express.json())
 app.use(express.static(__dirname+"/public"))
 
+app.use("/api",mascotasRouter);
 app.use("/",usuariosRouter);
-app.use("/",mascotasRouter);
+
 
 
 app.get('/', (req, res) => res.send('Users app +kotinder'))

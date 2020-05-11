@@ -1,54 +1,63 @@
 obtenerMascota()
-
+let cont =4
+let msct_JSON
 function alertLike(){
     alert("Se ha enviado la solicitud")
     location.reload()
 }
-async function postFavs(){
-    //Actualizar usr
+// async function postFavs(){
+//     //Actualizar usr
     
-        msct = await fetch("http://localhost:3000/mascotas",{
-        method: "GET",
-        headers: {"Content-Type": 'application/json'
-                // "x-auth": localStorage.token,
-                // "x-user-token": localStorage.token_usr 
-            }
-    })
-    let msct_JSON = await msct.json()
-        let masc_registro = {
-                                "nombre":msct_JSON.nombre,
-                                "especie":msct_JSON.especie,
-                                "descripcion":msct_JSON.descripcion,
-                                "sexo":msct_JSON.sexo,
-                                "cumpleaños":msct_JSON.cumpleaños,
-                                "id":1,
-                                "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-                                "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-                                "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
-        }
-    let regJson = JSON.stringify(masc_registro);
-    await fetch("http://localhost:3000/favoritos",{
-        method:"POST",
-        headers:{"Content-Type": 'application/json'
-        //,
-        // "x-auth": localStorage.token,
-        // "x-user-token": localStorage.token_usr 
-        },
-        body: regJson
-    })
-    obtenerMascota()
-    }
+//         msct = await fetch("http://localhost:3000/api/mascotas",{
+//         method: "GET",
+//         headers: {"Content-Type": 'application/json'
+//                 // "x-auth": localStorage.token,
+//                 // "x-user-token": localStorage.token_usr 
+//             }
+//     })
+//     let msct_JSON = await msct.json()
+//         let masc_registro = {
+//                                 "nombre":msct_JSON.nombre,
+//                                 "especie":msct_JSON.especie,
+//                                 "descripcion":msct_JSON.descripcion,
+//                                 "sexo":msct_JSON.sexo,
+//                                 "cumpleaños":msct_JSON.cumpleaños,
+//                                 "id":1,
+//                                 "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
+//                                 "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
+//                                 "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
+//         }
+//     let regJson = JSON.stringify(masc_registro);
+//     await fetch("http://localhost:3000/favoritos",{
+//         method:"POST",
+//         headers:{"Content-Type": 'application/json'
+//         //,
+//         // "x-auth": localStorage.token,
+//         // "x-user-token": localStorage.token_usr 
+//         },
+//         body: regJson
+//     })
+//     obtenerMascota()
+//     }
 
 async function obtenerMascota(){
-    msct = await fetch("http://localhost:3000/mascotas",{
+    msct = await fetch("http://localhost:3000/api/CatalogoMascotas",{
     method: "GET",
-    headers: {"Content-Type": 'application/json'
-            // "x-auth": localStorage.token,
-            // "x-user-token": localStorage.token_usr 
+    headers: {"Content-Type": 'application/json',
+            "x-user-token": localStorage.token_usr 
         }
 })
-let msct_JSON = await msct.json()
-let HTML_Mascota = 
+
+
+let arreglo_Msct = await msct.json()
+
+if(cont > arreglo_Msct.length){
+
+HTML_Mascota =`<h4>Ya no hay krnal</h4>`
+document.getElementById("carta_mascota").innerHTML = HTML_Mascota}
+else{
+msct_JSON = arreglo_Msct[cont]
+HTML_Mascota= 
 `
 <!-- Carrusel mascotas -->
 <div class="carrusel_padre">
@@ -82,5 +91,11 @@ let HTML_Mascota =
     <hr>
 <i class="fa fa-map-marker" aria-hidden="true"></i> ${msct_JSON.ubicacion}
 </div>`
-   document.getElementById("carta_mascota").innerHTML = HTML_Mascota
 }
+console.log(cont);
+console.log(HTML_Mascota);
+document.getElementById("carta_mascota").innerHTML = HTML_Mascota
+}
+
+
+

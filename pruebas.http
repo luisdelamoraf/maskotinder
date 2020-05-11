@@ -103,3 +103,8 @@ Content-Type: application/json
 DELETE http://localhost:3000/api/users
 Content-Type: application/json
 x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJhIiwiaWF0IjoxNTg5MTU3MTE0fQ.B7nn-WB6hwcwoC79c-YEMXwWnoYUPxWH7tTdckLdCVQ
+###
+
+GET http://localhost:3000/api/CatalogoMascotas
+Content-Type: application/json
+x-user-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb3JyZW8iOiJxQHEiLCJpYXQiOjE1ODkxMzA1Mjh9.2f9HtgcktHyBBDqWpbdUzPaAhFwH-H1h56VJpgg-tqg

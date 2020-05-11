@@ -46,6 +46,9 @@ let MascotaSchema = mongoose.Schema({
     id_dueño:{
         type:Number,
         require:true
+    },
+    Favoritos:{
+        type:Array
     }
 })
 
@@ -64,6 +67,13 @@ MascotaSchema.statics.ObtenerMascota = async (correo)=>{
     let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
     return MSC
 }
+
+MascotaSchema.statics.MostrarMascotas = async () =>{
+    let todas = await mascota.find({})
+    console.log(todas);
+    return todas
+}
+
 
 
 

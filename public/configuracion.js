@@ -86,11 +86,10 @@ function ValorEliminar(indice){
   }
 async function EliminarUsuario(indice){
     event.preventDefault()
-    let x = await fetch(`http://localhost:3000/EliminarUsuario/1`,{
+    let x = await fetch(`http://localhost:3000/api/users`,{
       method:"DELETE",
       headers:{"Content-Type": 'application/json',
-    //   "x-auth": localStorage.token,
-    //   "x-user-token": localStorage.token_usr 
+        "x-user-token": localStorage.token_usr 
       },
     })
     if (x.status == 200){

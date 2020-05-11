@@ -71,6 +71,8 @@ async function ValidUser(event){
     localStorage.token_usr = tkn.token;
     if (exitoso.status == 200){
         window.location.href = "./principal.html"
+    }else{
+        alert("Error: Usuario y contraseña incorrectos")
     }
     }
    

@@ -27,40 +27,33 @@ async function SolicitarAdopcion(){
         }
     }
 }
-// async function postFavs(){
-//     //Actualizar usr
-    
-//         msct = await fetch("http://localhost:3000/api/mascotas",{
-//         method: "GET",
-//         headers: {"Content-Type": 'application/json'
-//                 // "x-auth": localStorage.token,
-//                 // "x-user-token": localStorage.token_usr 
-//             }
-//     })
-//     let msct_JSON = await msct.json()
-//         let masc_registro = {
-//                                 "nombre":msct_JSON.nombre,
-//                                 "especie":msct_JSON.especie,
-//                                 "descripcion":msct_JSON.descripcion,
-//                                 "sexo":msct_JSON.sexo,
-//                                 "cumpleaños":msct_JSON.cumpleaños,
-//                                 "id":1,
-//                                 "url1":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/302/title-img.png",
-//                                 "url2":"https://www.24petwatch.com/Portals/24petwatchv2/EasyDNNnews/297/holiday-food-safety-header-img-300x300-2.png",
-//                                 "url3":"https://img.clipartlook.com/cute-dog-clipart-clipart-panda-free-clipart-images-clip-art-pets-300_300.jpg" 
-//         }
-//     let regJson = JSON.stringify(masc_registro);
-//     await fetch("http://localhost:3000/favoritos",{
-//         method:"POST",
-//         headers:{"Content-Type": 'application/json'
-//         //,
-//         // "x-auth": localStorage.token,
-//         // "x-user-token": localStorage.token_usr 
-//         },
-//         body: regJson
-//     })
-//     obtenerMascota()
-//     }
+
+async function postFavs(){
+    usr = await fetch("http://localhost:3000/api/users", {
+        method: "GET",
+        headers: {
+            "Content-Type": 'application/json',
+            "x-user-token": localStorage.token_usr
+        }
+    })
+    let usr_JSON = await usr.json()
+    msct_JSON.Favoritos.push(usr_JSON.id)
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('PUT', "/api/mascotasFav");
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('x-user-token', localStorage.token_usr);
+    xhr.send([JSON.stringify(msct_JSON)]);
+    xhr.onload = function () {
+        if (xhr.status == 201) { 
+            cont ++
+            alert("Se ha añadido a favoritos");
+            obtenerMascota();
+        } else {
+            console.log(JSON.parse(xhr.response));   
+        }
+    }
+}
 
 async function obtenerMascota(){
     msct = await fetch("http://localhost:3000/api/CatalogoMascotas",{

@@ -32,6 +32,15 @@ router.put("/api/mascotas",autenticacion, async (req, res) =>{
       }
 })
 
+router.put("/api/mascotasFav",autenticacion, async (req, res) =>{
+    try{
+        let Msc = await mascota.FavMascota(req.body)
+        res.status(201).send(Msc);
+     }catch(err){
+          res.status(400).send({ERROR:err});
+      }
+})
+
 router.delete("/api/mascotas",autenticacion, async (req,res)=>{
     try{
         await mascota.EliminarMascota(req.body.i)

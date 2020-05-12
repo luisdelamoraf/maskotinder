@@ -90,9 +90,19 @@ MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
     return Solicitada
 }
 
+MascotaSchema.statics.FavMascota = async (datosMascota)=>{
+    console.log(datosMascota);
+    let Solicitada = await mascota.findOneAndUpdate({id_mascota:datosMascota.id_mascota},{
+        Favoritos: datosMascota.Favoritos
+    })
+    console.log(Solicitada);
+    return Solicitada
+}
+
 //Eliminar mascota
 MascotaSchema.statics.EliminarMascota = async(i)=>{
 await mascota.findOneAndDelete({id_mascota:i})
+
 }
 
 

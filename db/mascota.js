@@ -97,7 +97,6 @@ MascotaSchema.statics.MostrarMascotas = async () =>{
 }
 
 MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
-    console.log(datosMascota);
     let Solicitada = await mascota.findOneAndUpdate({id_mascota:datosMascota.id_mascota},{
         interesados: datosMascota.interesados
     })
@@ -113,6 +112,22 @@ MascotaSchema.statics.FavMascota = async (datosMascota)=>{
     console.log(Solicitada);
     return Solicitada
 }
+
+MascotaSchema.statics.MostrarMascotasFav = async (correo) =>{
+    let idUSR = await usuario.findOne({correo:correo},{_id:0,id:1})
+    let favs = await mascota.find({Favoritos:idUSR.id},{_id:0,__v:0})
+    return favs
+}
+
+MascotaSchema.statics.SolicitarMAscotaUnfav = async (correo, idMSC)=>{
+    let idm = parseInt(idMSC)
+    let idUSR = await usuario.findOne({correo:correo}, {_id:0, id:1})
+    let Solicitada = await mascota.findOneAndUpdate({id_mascota:idm},{$pull: {Favoritos: idUSR.id}});
+    let msc = await mascota.findOne({id_mascota:idm}, {_id:0, Favoritos:1})
+    return Solicitada
+}
+
+
 
 //Eliminar mascota
 MascotaSchema.statics.EliminarMascota = async(i, correo)=>{

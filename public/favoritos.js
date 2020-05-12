@@ -1,20 +1,20 @@
+let msct_JSON 
+
 obtenerFavoritos()
-function alertLike(){
-    alert("Se ha enviado la solicitud")
-    location.reload()
-}
+
+
 async function obtenerFavoritos(){
 
-    msct = await fetch("http://localhost:3000/api/mascotas",{
+    msct = await fetch("http://localhost:3000/api/mascotasFav",{
     method: "GET",
     headers: {"Content-Type": 'application/json',
             "x-user-token": localStorage.token_usr 
         }
-})
-let msct_JSON = await msct.json()
+}) 
+msct_JSON = await msct.json()
 msct_JSON.forEach((elemento) => {
+    console.log(msct_JSON)
     let HTML_Mascota
-    console.log(msct_JSON);
     if (elemento.nombre == undefined) {
         HTML_Mascota = `<h3 padding-left="">¡Ve a la pestaña principal para añadir favoritos!</h3>`
     }else{
@@ -79,7 +79,7 @@ msct_JSON.forEach((elemento) => {
                     <div class="botones_likes" style="padding-left: 60px; padding-bottom: 20px;">
                         <button id="btn_superlike" type="button" class="btn btn-info btn-circle btn-xl btn_superlike" title="Quitar de favoritos" onclick="elimFavs()"><i class="fa fa-minus-circle"></i>
                         </button>
-                        <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" onclick="alertLike()" ><i class="fa fa-heart"></i>
+                        <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" onclick="SolicitarAdopcion(${elemento.id_mascota})" ><i class="fa fa-heart"></i>
                         </button>
                     </div>
                 </div>
@@ -92,6 +92,23 @@ msct_JSON.forEach((elemento) => {
 })
 }
 
+async function SolicitarAdopcion(x){
+    usr = await fetch("http://localhost:3000/api/mascotasLike", {
+        method: "GET",
+        headers: {
+            "Content-Type": 'application/json',
+            "x-user-token": localStorage.token_usr,
+            "idMascota": x
+        }
+    })
+        if (usr.status == 200) { 
+            alert("Se ha enviado la solicitud");
+            location.reload()
+            
+        } else {
+            console.log(usr.status);   
+        }
+    }
 
 async function elimFavs(){
 

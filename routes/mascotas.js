@@ -61,6 +61,10 @@ router.get("/api/mascotasFav",autenticacion, async (req,res)=>{
     res.status(200).send(favs)
 })
 
+router.get("/api/mascotasLike",autenticacion, async (req,res)=>{
+    let favs = await mascota.SolicitarMAscotaUnfav(correo, req.get("idMascota"))
+    res.status(200).send(favs)
+})
 
 //Middleware a rutas
 async function autenticacion(req, res, next) {

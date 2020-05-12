@@ -57,6 +57,14 @@ let MascotaSchema = mongoose.Schema({
     }
 })
 
+MascotaSchema.statics.MostrarMascotasFav = async (correo) =>{
+    let USRID = await usuario.find({correo:correo},{_id:0 , id:1})
+    console.log(USRID);
+    let favs = await mascota.find({id_dueño:USRID},{_id:0,__v:0})
+    console.log(favs);
+    return favs
+}
+
 MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     let correo
     jwt.verify(datosMascota.token_usr, "Labredes1",function(err, decoded) {

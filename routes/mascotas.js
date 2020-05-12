@@ -50,6 +50,12 @@ router.delete("/api/mascotas",autenticacion, async (req,res)=>{
     }
 })
 
+router.get("/api/mascotasFav",autenticacion, async (req,res)=>{
+    let favs = await mascota.MostrarMascotasFav(correo)
+    res.status(200).send(favs)
+})
+
+
 //Middleware a rutas
 async function autenticacion(req, res, next) {
     console.log("Middleware: autenticacion");

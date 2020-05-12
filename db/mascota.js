@@ -70,10 +70,12 @@ MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     jwt.verify(datosMascota.token_usr, "Labredes1",function(err, decoded) {
         if(decoded!=undefined)correo=decoded.correo;
     })
-    let idUSR = await usuario.findOne({correo:correo},{_id:0,id:1})
+    let idUSR = await usuario.findOne({correo:correo},{_id:0,id:1,ubicacion:1})
+    await usuario.findOneAndUpdate({correo:correo},{$inc:{acomodos:1}})
     datosMascota.id_dueño = idUSR.id
     datosMascota.interesados=[]
     datosMascota.Favoritos=[]
+    datosMascota.ubicacion=idUSR.ubicacion
     let nuevaMascota = mascota(datosMascota)
     return nuevaMascota.save()
 }
@@ -113,8 +115,9 @@ MascotaSchema.statics.FavMascota = async (datosMascota)=>{
 }
 
 //Eliminar mascota
-MascotaSchema.statics.EliminarMascota = async(i)=>{
+MascotaSchema.statics.EliminarMascota = async(i, correo)=>{
 await mascota.findOneAndDelete({id_mascota:i})
+await usuario.findOneAndUpdate({correo:correo},{$inc:{acomodos:-1}})
 
 }
 

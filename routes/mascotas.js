@@ -49,7 +49,7 @@ router.put("/api/mascotasFav",autenticacion, async (req, res) =>{
 
 router.delete("/api/mascotas",autenticacion, async (req,res)=>{
     try{
-        await mascota.EliminarMascota(req.body.i)
+        await mascota.EliminarMascota(req.body.i, correo)
         res.status(200).send({OK:"Mascota eliminada correctamente"})
     }catch(err){
         res.status(400).send({ERROR:err});

@@ -172,7 +172,7 @@ async function GETmasc() {
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <img class="imagen_carta" src="${msct_JSON.url1}">
-                </div>
+                </>
                 <div class="carousel-item">
                     <img class="imagen_carta" src="${msct_JSON.url2}" >
                 </div>

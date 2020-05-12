@@ -45,8 +45,9 @@ usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
     datosUsuario.telefono = 0000000000,
     datosUsuario.url = "https://aguadilla.inter.edu/wp-content/uploads/2019/03/default-profile-300x300.png",
     datosUsuario.acomodos= 0,
-    datosUsuario.ubicacion= "x"
+    datosUsuario.ubicacion= "No establecida"
     let nuevoUsuario = usuario(datosUsuario)
+    console.log(nuevoUsuario);
     return nuevoUsuario.save()
 }
 

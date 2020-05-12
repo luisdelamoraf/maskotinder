@@ -28,7 +28,6 @@ router.put("/api/users",autenticacion, async (req,res)=>{
     }
 })
 router.get("/api/UnUsuario",autenticacion, async (req, res)=>{
-    console.log(req.get("IdUsuario"));
     let usr = await usuario.UnUsuario(req.get("IdUsuario"))
     res.status(200).send(usr)
 })

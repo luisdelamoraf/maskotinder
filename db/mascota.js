@@ -4,7 +4,7 @@ const jwt = require ("jsonwebtoken");
 
 let MascotaSchema = mongoose.Schema({
     id_mascota:{
-        type:String,
+        type:Number,
         require:true
     },
     nombre:{
@@ -44,7 +44,7 @@ let MascotaSchema = mongoose.Schema({
         require:true
     },
     id_dueño:{
-        type:String,
+        type:Number,
         require:true
     },
     Favoritos:{

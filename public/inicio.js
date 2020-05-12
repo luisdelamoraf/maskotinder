@@ -40,7 +40,7 @@ async function CatchSubmit(event){
     console.log(usr_JSON);
     if (exitoso.status == 201){
         alert("Usuario Registrado Exitosamente")
-        $('#BtnModalRegistro').modal('hide');
+        location.reload();
     }else{
         alert("ERROR")
     }

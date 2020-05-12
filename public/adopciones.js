@@ -64,8 +64,8 @@ async function infoClickMascotas(x){
     console.log(usr_JSON);
     
      HTML_info =     
-    `
-                            <div style>
+    `<hr>
+                            <div class="usrSolicitud">
 								<div class="d-flex bd-highlight">
 									<div class="img_cont">
 										<img src="${usr_JSON.url}" class="rounded-circle user_img">
@@ -82,9 +82,11 @@ async function infoClickMascotas(x){
 										<td><i class="fa fa-phone" aria-hidden="true"></i> ${usr_JSON.telefono}
 											</td>
 										<td><i class="fa fa-map-marker" aria-hidden="true"></i> ${usr_JSON.ubicacion}</td>
-									</tr>
+                                    </tr>
+                                    
                                 </div>
                             </div>
+                            
 								
 `
        document.getElementById("infoDisplay").innerHTML += HTML_info

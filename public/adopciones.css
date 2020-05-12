@@ -14,8 +14,15 @@
 }
 
   .ex1 {
-      margin-left: 3%;
+    margin-left: 3%;
     overflow: auto;
+
+  }
+  .usrSolicitud{
+    opacity: 0.8;
+  }
+  .usrSolicitud:hover{
+    opacity: 1.0;
   }
 .imagen_perfil{
     margin-left: 25px;

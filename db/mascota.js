@@ -57,6 +57,14 @@ let MascotaSchema = mongoose.Schema({
     }
 })
 
+MascotaSchema.statics.MostrarMascotasFav = async (correo) =>{
+    let USRID = await usuario.find({correo:correo},{_id:0 , id:1})
+    console.log(USRID);
+    let favs = await mascota.find({id_dueño:USRID},{_id:0,__v:0})
+    console.log(favs);
+    return favs
+}
+
 MascotaSchema.statics.RegistrarMascota = async (datosMascota)=>{
     let correo
     jwt.verify(datosMascota.token_usr, "Labredes1",function(err, decoded) {
@@ -90,9 +98,19 @@ MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
     return Solicitada
 }
 
+MascotaSchema.statics.FavMascota = async (datosMascota)=>{
+    console.log(datosMascota);
+    let Solicitada = await mascota.findOneAndUpdate({id_mascota:datosMascota.id_mascota},{
+        Favoritos: datosMascota.Favoritos
+    })
+    console.log(Solicitada);
+    return Solicitada
+}
+
 //Eliminar mascota
 MascotaSchema.statics.EliminarMascota = async(i)=>{
 await mascota.findOneAndDelete({id_mascota:i})
+
 }
 
 

@@ -92,8 +92,7 @@ MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{
 
 //Eliminar mascota
 MascotaSchema.statics.EliminarMascota = async(i)=>{
-    
- await usuario.findOneAndDelete({id_mascota:i})
+await mascota.findOneAndDelete({id_mascota:i})
 }
 
 

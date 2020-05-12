@@ -205,7 +205,9 @@ async function GETmasc() {
 
 //ELIMINAR MASCOTAS
 function ValorEliminar(indice) {
-    IndiceEliminar = indice
+    console.log(indice);
+    IndiceEliminar = indice.toString()
+    console.log(IndiceEliminar);
 }
 async function EliminarMascota() {
     event.preventDefault()

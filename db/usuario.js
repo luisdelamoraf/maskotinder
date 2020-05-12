@@ -56,6 +56,11 @@ usuarioSchema.statics.ObtenerUsuario = async (correo)=>{
     let USR = await usuario.findOne({correo:correo},{_id:0})
     return USR
 }
+usuarioSchema.statics.UnUsuario = async (idUsr)=>{
+    let USR = await usuario.findOne({id:idUsr},{_id:0})
+    console.log(USR);
+    return USR
+}
 
 // Actualizar perfil
 usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
@@ -75,6 +80,7 @@ usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
 usuarioSchema.statics.EliminarUsuario = async(correo)=>{
     await usuario.findOneAndDelete({correo:correo})
 }
+
 
 
 let usuario = mongoose.model('usuario', usuarioSchema);

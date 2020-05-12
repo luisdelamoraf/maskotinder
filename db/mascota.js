@@ -83,6 +83,11 @@ MascotaSchema.statics.ObtenerMascota = async (correo)=>{
     let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
     return MSC
 }
+MascotaSchema.statics.UnaMascota = async (idMsct)=>{
+    let MSC = await mascota.findOne({id_mascota:idMsct},{_id:0,interesados:1})
+    console.log(MSC);
+    return MSC
+}
 
 MascotaSchema.statics.MostrarMascotas = async () =>{
     let todas = await mascota.find({},{_id:0,__v:0})
@@ -114,5 +119,14 @@ await mascota.findOneAndDelete({id_mascota:i})
 }
 
 
+MascotaSchema.statics.ObtenerInteresados = async (msct)=>{
+    let USR = await usuario.findOne({correo:correo},{_id:0,id:1})
+    let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
+    return MSC
+}
+
+
 let mascota = mongoose.model("mascota",MascotaSchema)
 module.exports = mascota
+
+

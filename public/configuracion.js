@@ -20,7 +20,6 @@ let valores_ubi = await z.json()
 }
 
 async function editarUsuario(){
-    console.log();
     let z = await fetch(`http://localhost:3000/api/users`,{
         method:"GET",
         headers:{"Content-Type": 'application/json',
@@ -36,7 +35,6 @@ async function editarUsuario(){
     let url = valores_usr.url;
     let ubicacion = valores_usr.ubicacion;
 
-
     $("#NombreP").val(nombre)
     $("#ApellidoP").val(apellido)
     $("#CorreoP").val(correo)
@@ -45,10 +43,6 @@ async function editarUsuario(){
     $("#TelP").val(Tel)
     $("#urlP").val(url)
     $("#ubicacionP").val(ubicacion)
-
-
-    
-    
 }
 
 async function ActualizarUsuario(){
@@ -70,14 +64,24 @@ async function ActualizarUsuario(){
     "ubicacion":Reg_ubicacion
 }
 let regJson = JSON.stringify(Reg);
-await fetch("http://localhost:3000/api/users",{
+let x = await fetch("http://localhost:3000/api/users",{
     method:"PUT",
     headers:{"Content-Type": 'application/json',
       "x-user-token": localStorage.token_usr 
     },
     body: regJson
 })
-location.reload();
+
+if (x.status == 200) { 
+  alert("Perfil actualizado correctamente")
+  location.reload();
+} else {
+  console.log(x.status);   
+}
+
+
+
+
 }
 
 //ELIMINAR USUARIO

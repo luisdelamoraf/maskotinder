@@ -72,7 +72,13 @@ if(cont+1 > arreglo_Msct.length){
     HTML_Mascota =`<h4>&nbsp No hay mas mascotas con este criterio de busqueda</h4>`
     document.getElementById("carta_mascota").innerHTML = HTML_Mascota
 }else{
+    let sexo
     msct_JSON = arreglo_Msct[cont]
+    if(msct_JSON.sexo == "H"){
+        sexo = "Hembra"
+    }else{
+        sexo ="Macho"
+    }
     HTML_Mascota= `
         <!-- Carrusel mascotas -->
         <div class="carrusel_padre">
@@ -100,7 +106,7 @@ if(cont+1 > arreglo_Msct.length){
             <hr>
             <i class="fa fa-info-circle" aria-hidden="true"></i> ${msct_JSON.descripcion}
             <hr>
-            <i class="fa fa-venus-mars" aria-hidden="true"></i> ${msct_JSON.sexo}
+            <i class="fa fa-venus-mars" aria-hidden="true"></i> ${sexo}
             <hr>
             <i class="fa fa-birthday-cake" aria-hidden="true"></i> ${msct_JSON.cumpleaños}
             <hr>

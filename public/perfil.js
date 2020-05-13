@@ -44,6 +44,12 @@ async function obtenerMascota() {
             if (elemento.nombre == undefined) {
                 HTML_Mascota = `<h6 align="center">Todavia no tienes mascotas</h6>`
             } else {
+                let sexo
+                if(elemento.sexo == "H"){
+                    sexo = "Hembra"
+                }else{
+                    sexo ="Macho"
+                }
                 HTML_Mascota =
 
                     `      
@@ -73,7 +79,7 @@ async function obtenerMascota() {
     <hr>
     <i class="fa fa-info-circle" aria-hidden="true" id="descripcion"></i>${elemento.descripcion}
     <hr>
-    <i class="fa fa-venus-mars" aria-hidden="true" ></i> ${elemento.sexo}
+    <i class="fa fa-venus-mars" aria-hidden="true" ></i> ${sexo}
     <hr>
     <i class="fa fa-birthday-cake" aria-hidden="true"></i> ${elemento.cumpleaños}
     <hr>

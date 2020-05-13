@@ -13,11 +13,16 @@ async function obtenerFavoritos(){
 }) 
 msct_JSON = await msct.json()
 msct_JSON.forEach((elemento) => {
-    console.log(msct_JSON)
     let HTML_Mascota
     if (elemento.nombre == undefined) {
         HTML_Mascota = `<h3 padding-left="">¡Ve a la pestaña principal para añadir favoritos!</h3>`
     }else{
+        let sexo
+        if(elemento.sexo == "H"){
+            sexo = "Hembra"
+        }else{
+            sexo ="Macho"
+        }
      HTML_Mascota = `
     <button class="btn_fav" data-toggle="modal" data-target="#model${elemento.id_mascota}">
     <!-- Carta horizontal -->
@@ -68,7 +73,7 @@ msct_JSON.forEach((elemento) => {
                             <hr>
                             <i class="fa fa-info-circle" aria-hidden="true"></i> ${elemento.descripcion}
                             <hr>
-                            <i class="fa fa-venus-mars" aria-hidden="true"></i> ${elemento.sexo}
+                            <i class="fa fa-venus-mars" aria-hidden="true"></i> ${sexo}
                             <hr>
                             <i class="fa fa-birthday-cake" aria-hidden="true"></i>${elemento.cumpleaños}
                             <hr>

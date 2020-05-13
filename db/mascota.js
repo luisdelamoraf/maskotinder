@@ -129,6 +129,14 @@ MascotaSchema.statics.SolicitarMAscotaUnfav = async (correo, idMSC)=>{
     return Solicitada
 }
 
+MascotaSchema.statics.QuitarFavs = async (correo, idMSC)=>{
+    let idm = parseInt(idMSC)
+    let idUSR = await usuario.findOne({correo:correo}, {_id:0, id:1})
+    let Solicitada = await mascota.findOneAndUpdate({id_mascota:idm},{$pull: {Favoritos: idUSR.id}});
+    let msc = await mascota.findOne({id_mascota:idm}, {_id:0, Favoritos:1})
+    return Solicitada
+}
+
 
 
 //Eliminar mascota

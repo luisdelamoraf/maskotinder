@@ -69,7 +69,7 @@ async function obtenerMascota(){
 })
 let arreglo_Msct = await msct.json()
 if(cont+1 > arreglo_Msct.length){
-    HTML_Mascota =`<h4>Ya no hay krnal</h4>`
+    HTML_Mascota =`<h4>&nbsp No hay mas mascotas con este criterio de busqueda</h4>`
     document.getElementById("carta_mascota").innerHTML = HTML_Mascota
 }else{
     msct_JSON = arreglo_Msct[cont]

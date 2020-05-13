@@ -77,7 +77,7 @@ msct_JSON.forEach((elemento) => {
                     </div>
                     </div>
                     <div class="botones_likes" style="padding-left: 60px; padding-bottom: 20px;">
-                        <button id="btn_superlike" type="button" class="btn btn-info btn-circle btn-xl btn_superlike" title="Quitar de favoritos" onclick="elimFavs()"><i class="fa fa-minus-circle"></i>
+                        <button id="btn_superlike" type="button" class="btn btn-info btn-circle btn-xl btn_superlike" title="Quitar de favoritos" onclick="elimFavs(${elemento.id_mascota})"><i class="fa fa-minus-circle"></i>
                         </button>
                         <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" onclick="SolicitarAdopcion(${elemento.id_mascota})" ><i class="fa fa-heart"></i>
                         </button>
@@ -110,14 +110,23 @@ async function SolicitarAdopcion(x){
         }
     }
 
-async function elimFavs(){
 
-        msct = await fetch(`http://localhost:3000/favoritos/1`,{
-        method: "DELETE",
-        headers: {"Content-Type": 'application/json'
-                // "x-auth": localStorage.token,
-                // "x-user-token": localStorage.token_usr 
-            }
+async function elimFavs(x){
+    usr = await fetch("http://localhost:3000/api/mascotasLike", {
+        method: "GET",
+        headers: {
+            "Content-Type": 'application/json',
+            "x-user-token": localStorage.token_usr,
+            "idMascota": x
+        }
     })
-    location.reload()
+    if (usr.status == 200) { 
+        alert("Se ha eliminado de favoritos");
+        location.reload()
+        
+    } else {
+        console.log(usr.status);   
     }
+}
+    
+    

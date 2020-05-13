@@ -4,7 +4,7 @@ ubicacion()
 let IndiceEliminar;
 let indice;
 async function ubicacion() {
-  let USR = await fetch(`http://localhost:3000/api/users`, {
+  let USR = await fetch(`/api/users`, {
     method: "GET",
     headers: {
       "Content-Type": 'application/json',
@@ -19,7 +19,7 @@ async function ubicacion() {
 }
 
 async function editarUsuario() {
-  let z = await fetch(`http://localhost:3000/api/users`, {
+  let z = await fetch(`/api/users`, {
     method: "GET",
     headers: {
       "Content-Type": 'application/json',
@@ -64,7 +64,7 @@ async function ActualizarUsuario() {
     "ubicacion": Reg_ubicacion
   }
   let regJson = JSON.stringify(Reg);
-  let x = await fetch("http://localhost:3000/api/users", {
+  let x = await fetch("/api/users", {
     method: "PUT",
     headers: {
       "Content-Type": 'application/json',
@@ -88,7 +88,7 @@ function ValorEliminar(indice) {
 }
 async function EliminarUsuario(indice) {
   event.preventDefault()
-  let x = await fetch(`http://localhost:3000/api/users`, {
+  let x = await fetch(`/api/users`, {
     method: "DELETE",
     headers: {
       "Content-Type": 'application/json',

@@ -6,7 +6,7 @@ obtenerMascota()
 //GETmasc()
 
 async function ObtenerUsuario() {
-    usr = await fetch("http://localhost:3000/api/users", {
+    usr = await fetch("/api/users", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',
@@ -31,7 +31,7 @@ async function ObtenerUsuario() {
 }
 
 async function obtenerMascota() {
-    msct = await fetch("http://localhost:3000/api/mascotas", {
+    msct = await fetch("/api/mascotas", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',
@@ -123,7 +123,7 @@ async function CatchSubMasc(event) {
         "token_usr": localStorage.token_usr
     }
     let msc_JSON = JSON.stringify(masc_registro);
-    let exitoso = await fetch("http://localhost:3000/api/mascotas", {
+    let exitoso = await fetch("/api/mascotas", {
         method: "POST",
         headers: {
             "Content-Type": 'application/json',
@@ -141,7 +141,7 @@ async function CatchSubMasc(event) {
 
 }
 async function GETmasc() {
-    let successMasc = await fetch("http://localhost:3000/registro_mascotas", {
+    let successMasc = await fetch("/registro_mascotas", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json' ,
@@ -155,7 +155,7 @@ async function GETmasc() {
     x.forEach((elemento) => {
         GETdata()
         async function GETdata() {
-            let datosMasc = await fetch("http://localhost:3000/registro_mascotas" + [0], {
+            let datosMasc = await fetch("/registro_mascotas" + [0], {
                 method: "GET",
                 headers: {
                     "Content-Type": 'application/json'
@@ -229,15 +229,6 @@ async function EliminarMascota() {
             console.log(JSON.parse(xhr.response));   
         }
     }
-    // let x= await fetch(`http://localhost:3000/api/mascotas`, {
-    //     method: "DELETE",
-    //     headers: {
-    //         "Content-Type": 'application/json',
-    //         "x-user-token": localStorage.token_usr 
-    //     },
-    //     body: {"i":IndiceEliminar}
-    // })
-
 }
 
 //MODAL DE ELIMINAR

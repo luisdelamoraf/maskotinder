@@ -17,7 +17,7 @@ function siguienteMasc(){
 }
 
 async function SolicitarAdopcion(){
-    usr = await fetch("http://localhost:3000/api/users", {
+    usr = await fetch("/api/users", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',
@@ -44,7 +44,7 @@ async function SolicitarAdopcion(){
 }
 
 async function postFavs(){
-    usr = await fetch("http://localhost:3000/api/users", {
+    usr = await fetch("/api/users", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',
@@ -76,7 +76,7 @@ async function postFavs(){
 
 async function obtenerMascotaFiltro(){
     
-    msct = await fetch("http://localhost:3000/api/CatalogoMascotas",{
+    msct = await fetch("/api/CatalogoMascotas",{
     method: "GET",
     headers: {"Content-Type": 'application/json',
             "x-user-token": localStorage.token_usr,
@@ -133,7 +133,7 @@ document.getElementById("carta_mascota").innerHTML = HTML_Mascota
 }
 
 async function obtenerMascota(){
-    msct = await fetch("http://localhost:3000/api/CatalogoMascotas",{
+    msct = await fetch("/api/CatalogoMascotas",{
     method: "GET",
     headers: {"Content-Type": 'application/json',
             "x-user-token": localStorage.token_usr 

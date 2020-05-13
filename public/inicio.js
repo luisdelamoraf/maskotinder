@@ -32,7 +32,7 @@ async function CatchSubmit(event){
                             "password":usr_password
     }
     let usr_JSON = JSON.stringify(usr_registro);
-    let exitoso = await fetch("http://localhost:3000/api/users",{
+    let exitoso = await fetch("/api/users",{
         method: "POST",
         headers: {"Content-Type": 'application/json'},
         body: usr_JSON,
@@ -59,7 +59,7 @@ async function ValidUser(event){
          "password":login_password
     }
     let login_JSON = JSON.stringify(login);
-    let exitoso = await fetch("http://localhost:3000/api/login",{
+    let exitoso = await fetch("/api/login",{
         method: "POST",
         headers: {"Content-Type": 'application/json'},
         body: login_JSON

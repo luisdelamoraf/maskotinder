@@ -5,7 +5,7 @@ obtenerFavoritos()
 
 async function obtenerFavoritos(){
 
-    msct = await fetch("http://localhost:3000/api/mascotasFav",{
+    msct = await fetch("/api/mascotasFav",{
     method: "GET",
     headers: {"Content-Type": 'application/json',
             "x-user-token": localStorage.token_usr 
@@ -98,7 +98,7 @@ msct_JSON.forEach((elemento) => {
 }
 
 async function SolicitarAdopcion(x){
-    usr = await fetch("http://localhost:3000/api/mascotasLike", {
+    usr = await fetch("/api/mascotasLike", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',
@@ -115,9 +115,8 @@ async function SolicitarAdopcion(x){
         }
     }
 
-
 async function elimFavs(x){
-    usr = await fetch("http://localhost:3000/api/mascotasQuitar", {
+    usr = await fetch("/api/mascotasQuitar", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',

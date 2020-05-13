@@ -117,7 +117,7 @@ async function SolicitarAdopcion(x){
 
 
 async function elimFavs(x){
-    usr = await fetch("http://localhost:3000/api/mascotasLike", {
+    usr = await fetch("http://localhost:3000/api/mascotasQuitar", {
         method: "GET",
         headers: {
             "Content-Type": 'application/json',

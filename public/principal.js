@@ -9,8 +9,13 @@ let msct_JSON
 
 function siguienteMasc(){
     cont++
-    obtenerMascota()
+    if(localStorage.Filtro){
+        obtenerMascotaFiltro()
+    }else{
+        obtenerMascota()
+    }
 }
+
 async function SolicitarAdopcion(){
     usr = await fetch("http://localhost:3000/api/users", {
         method: "GET",
@@ -58,7 +63,11 @@ async function postFavs(){
         if (xhr.status == 201) { 
             cont ++
             alert("Se ha añadido a favoritos");
-            obtenerMascota();
+            if(localStorage.Filtro){
+                obtenerMascotaFiltro()
+            }else{
+                obtenerMascota()
+            }
         } else {
             console.log(JSON.parse(xhr.response));   
         }

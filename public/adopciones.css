@@ -256,6 +256,14 @@ input::placeholder, textarea::placeholder {
     color: white !important;
 
   }
+
+  #boton_logout{
+    position:fixed;
+    right:5%;
+    top:5px;
+}
+
+
 /*Barra de navegación*/
 #IDnavbar{
     background: rgba(129,11,145,1);

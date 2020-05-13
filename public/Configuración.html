@@ -42,6 +42,10 @@
                     <!--BOTON Configuración -->
                        <a class="nav-link active" href="Configuración.html"> <i class="fa fa-cog" aria-hidden="true"></i> Configuración</a>
                      </li>
+                    </li>
+                    <!--BOTON Configuración -->
+                    <a class="nav-link" id="boton_logout" href="inicio.html"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar sesión</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -179,18 +183,17 @@
                                 <input type="checkbox" class="form-check-input sexoM" name="sexo" id="sexoM" value="H" >
                                 Macho
                             </label>
-                        </div>
-                        
+                        </div>  
                     </div>
                     <div id="modalEliminarUsuario">
                     </div>
                     <hr>
                     <div id="ubicacion">
                     </div>
-                    <div style="float: left;">
-                        <buttontype="button" class="btn btn-success btn-circle" id="btnFiltro" onclick="Filtrar()"><i class="fa fa-check"></i></button>
-                    </div>
                 </form>
+                <div style="float: right;">
+                    <buttontype="button" class="btn btn-success btn-circle" id="btnFiltro" onclick="Filtrar()"><i class="fa fa-check"></i></button>
+                </div>
             </div>
         </td>
     </tr>

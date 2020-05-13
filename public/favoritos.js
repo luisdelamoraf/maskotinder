@@ -81,7 +81,7 @@ msct_JSON.forEach((elemento) => {
                         </div>
                     </div>
                     </div>
-                    <div class="botones_likes" style="padding-left: 60px; padding-bottom: 20px;">
+                    <div class="botones_likes" style="padding-left: 3%; padding-bottom: 1%;">
                         <button id="btn_superlike" type="button" class="btn btn-info btn-circle btn-xl btn_superlike" title="Quitar de favoritos" onclick="elimFavs(${elemento.id_mascota})"><i class="fa fa-minus-circle"></i>
                         </button>
                         <button id="btn_like" type="button" class="btn btn-success btn-circle btn-xl btn_like" title="Solicitar Adopción" onclick="SolicitarAdopcion(${elemento.id_mascota})" ><i class="fa fa-heart"></i>

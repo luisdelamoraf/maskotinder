@@ -25,8 +25,14 @@ router.get("/api/UnaMascota",autenticacion, async (req, res)=>{
 
 
 router.get("/api/CatalogoMascotas",autenticacion, async (req,res)=>{
-    let ctlg = await mascota.MostrarMascotas(correo)
-    res.status(200).send(ctlg)
+    if(req.get("Filtro")){
+        let ctlg = await mascota.MostrarMascotas(correo,req.get("Filtro"))
+        res.status(200).send(ctlg)
+    }else{
+        let ctlg = await mascota.MostrarMascotas(correo)
+        res.status(200).send(ctlg)
+    }
+
 })
 
 router.put("/api/mascotas",autenticacion, async (req, res) =>{

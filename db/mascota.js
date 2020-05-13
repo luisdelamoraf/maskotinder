@@ -91,11 +91,23 @@ MascotaSchema.statics.UnaMascota = async (idMsct)=>{
     return MSC
 }
 
-MascotaSchema.statics.MostrarMascotas = async (correo) =>{
-    let idUSR = await usuario.findOne({correo:correo},{_id:0, id:1})
-    let todas = await mascota.find({id_dueño: {$nin: idUSR.id}, Favoritos: {$nin: idUSR.id}, interesados: {$nin: idUSR.id}},{_id:0,__v:0})
-    console.log(todas);
-    return todas
+MascotaSchema.statics.MostrarMascotas = async (correo,Filtro) =>{
+    if(Filtro){
+        let filtro = JSON.parse(Filtro)
+        let idUSR = await usuario.findOne({correo:correo},{_id:0, id:1})
+        let ObjFiltro = {id_dueño: {$nin: idUSR.id}, Favoritos: {$nin: idUSR.id}, interesados: {$nin: idUSR.id}, especie:filtro.especie}
+        if(filtro.sexo){
+            ObjFiltro.sexo = filtro.sexo
+        }
+        let todas = await mascota.find(ObjFiltro,{_id:0,__v:0})
+        console.log(todas);
+        return todas
+    }else{
+        let idUSR = await usuario.findOne({correo:correo},{_id:0, id:1})
+        let todas = await mascota.find({id_dueño: {$nin: idUSR.id}, Favoritos: {$nin: idUSR.id}, interesados: {$nin: idUSR.id}},{_id:0,__v:0})
+        console.log(todas);
+        return todas
+    }
 }
 
 MascotaSchema.statics.SolicitarMascota = async (datosMascota)=>{

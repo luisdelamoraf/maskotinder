@@ -3,100 +3,120 @@ ubicacion()
 
 let IndiceEliminar;
 let indice;
-async function ubicacion(){
- let USR = await fetch(`http://localhost:3000/api/users`,{
-    method:"GET",
-    headers:{"Content-Type": 'application/json',
-    "x-user-token": localStorage.token_usr 
+async function ubicacion() {
+  let USR = await fetch(`http://localhost:3000/api/users`, {
+    method: "GET",
+    headers: {
+      "Content-Type": 'application/json',
+      "x-user-token": localStorage.token_usr
     }
-})
-let valores_ubi = await USR.json()
-    let HTML_ubi = `
+  })
+  let valores_ubi = await USR.json()
+  let HTML_ubi = `
     <h6>Ubicación</h6>
     <h6>${valores_ubi.ubicacion}</h6>`
-    document.querySelector("#ubicacion").innerHTML = HTML_ubi
+  document.querySelector("#ubicacion").innerHTML = HTML_ubi
 }
 
-async function editarUsuario(){
-    let z = await fetch(`http://localhost:3000/api/users`,{
-        method:"GET",
-        headers:{"Content-Type": 'application/json',
-        "x-user-token": localStorage.token_usr 
-        }
-    })
-    let valores_usr = await z.json()
-    let nombre = valores_usr.nombre;
-    let apellido = valores_usr.apellido;
-    let correo = valores_usr.correo;
-    let Tel = valores_usr.telefono;
-    let password1 = valores_usr.password;
-    let url = valores_usr.url;
-    let ubicacion = valores_usr.ubicacion;
+async function editarUsuario() {
+  let z = await fetch(`http://localhost:3000/api/users`, {
+    method: "GET",
+    headers: {
+      "Content-Type": 'application/json',
+      "x-user-token": localStorage.token_usr
+    }
+  })
+  let valores_usr = await z.json()
+  let nombre = valores_usr.nombre;
+  let apellido = valores_usr.apellido;
+  let correo = valores_usr.correo;
+  let Tel = valores_usr.telefono;
+  let password1 = valores_usr.password;
+  let url = valores_usr.url;
+  let ubicacion = valores_usr.ubicacion;
 
-    $("#NombreP").val(nombre)
-    $("#ApellidoP").val(apellido)
-    $("#CorreoP").val(correo)
-    $("#PasswordP").val(password1)
-    $("#PassConfP").val(password1)
-    $("#TelP").val(Tel)
-    $("#urlP").val(url)
-    $("#ubicacionP").val(ubicacion)
+  $("#NombreP").val(nombre)
+  $("#ApellidoP").val(apellido)
+  $("#CorreoP").val(correo)
+  $("#PasswordP").val(password1)
+  $("#PassConfP").val(password1)
+  $("#TelP").val(Tel)
+  $("#urlP").val(url)
+  $("#ubicacionP").val(ubicacion)
 }
 
-async function ActualizarUsuario(){
-    event.preventDefault();
-    let Reg_nombre = document.querySelector("#NombreP").value;
-    let Reg_apellido = document.querySelector("#ApellidoP").value;
-    let Reg_correo = document.querySelector("#CorreoP").value;
-    let Reg_tel = document.querySelector("#TelP").value;
-    let Reg_Pass = document.querySelector("#PasswordP").value;
-    let Reg_url = document.querySelector("#urlP").value;
-    let Reg_ubicacion = document.querySelector("#ubicacionP").value;
-    let Reg = {
-    "nombre":Reg_nombre,
+async function ActualizarUsuario() {
+  event.preventDefault();
+  let Reg_nombre = document.querySelector("#NombreP").value;
+  let Reg_apellido = document.querySelector("#ApellidoP").value;
+  let Reg_correo = document.querySelector("#CorreoP").value;
+  let Reg_tel = document.querySelector("#TelP").value;
+  let Reg_Pass = document.querySelector("#PasswordP").value;
+  let Reg_url = document.querySelector("#urlP").value;
+  let Reg_ubicacion = document.querySelector("#ubicacionP").value;
+  let Reg = {
+    "nombre": Reg_nombre,
     "apellido": Reg_apellido,
     "correo": Reg_correo,
-    "telefono":Reg_tel,
-    "password":Reg_Pass,
-    "url":Reg_url,
-    "ubicacion":Reg_ubicacion
-}
-let regJson = JSON.stringify(Reg);
-let x = await fetch("http://localhost:3000/api/users",{
-    method:"PUT",
-    headers:{"Content-Type": 'application/json',
-      "x-user-token": localStorage.token_usr 
+    "telefono": Reg_tel,
+    "password": Reg_Pass,
+    "url": Reg_url,
+    "ubicacion": Reg_ubicacion
+  }
+  let regJson = JSON.stringify(Reg);
+  let x = await fetch("http://localhost:3000/api/users", {
+    method: "PUT",
+    headers: {
+      "Content-Type": 'application/json',
+      "x-user-token": localStorage.token_usr
     },
     body: regJson
-})
+  })
 
-if (x.status == 200) { 
-  alert("Perfil actualizado correctamente")
-  location.reload();
-} else {
-  console.log(x.status);   
+  if (x.status == 200) {
+    alert("Perfil actualizado correctamente")
+    location.reload();
+  } else {
+    console.log(x.status);
+  }
 }
 
-
-
-
-}
 
 //ELIMINAR USUARIO
-function ValorEliminar(indice){
-    IndiceEliminar = indice
+function ValorEliminar(indice) {
+  IndiceEliminar = indice
+}
+async function EliminarUsuario(indice) {
+  event.preventDefault()
+  let x = await fetch(`http://localhost:3000/api/users`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": 'application/json',
+      "x-user-token": localStorage.token_usr
+    },
+  })
+  if (x.status == 200) {
+    window.location.href = "./inicio.html"
   }
-async function EliminarUsuario(indice){
-    event.preventDefault()
-    let x = await fetch(`http://localhost:3000/api/users`,{
-      method:"DELETE",
-      headers:{"Content-Type": 'application/json',
-        "x-user-token": localStorage.token_usr 
-      },
-    })
-    if (x.status == 200){
-        window.location.href = "inicio.html"
-    }
+}
+
+//Filtrar
+async function Filtrar(){
+  let especie = document.querySelector("#especie").value
+  let sexoF = document.querySelector("#sexoF").checked
+  let sexoM = document.querySelector("#sexoM").checked
+  let sexo
+  if(sexoF && sexoM){
+
+  }else{
+    sexo = sexoF?"H":"M"
+  }
+  let Filtro = {
+    sexo,
+    especie
+  }
+  localStorage.Filtro = JSON.stringify(Filtro)
+  window.location.href = "./principal.html"
 }
 
 //MODAL DE ELIMINAR

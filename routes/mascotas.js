@@ -25,7 +25,7 @@ router.get("/api/UnaMascota",autenticacion, async (req, res)=>{
 
 
 router.get("/api/CatalogoMascotas",autenticacion, async (req,res)=>{
-    let ctlg = await mascota.MostrarMascotas()
+    let ctlg = await mascota.MostrarMascotas(correo)
     res.status(200).send(ctlg)
 })
 

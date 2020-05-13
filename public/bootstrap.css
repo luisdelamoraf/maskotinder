@@ -57,10 +57,19 @@
     line-height: 1.42857;
 }
 .botones_likes{
-    padding-top: 10px;
     margin: auto;
-    width: 300px;
+    width: 20%;
+    
 }
+.pantalla_principal{
+    width: auto;
+    height: auto
+}
+
+#Botones_principal{
+    padding-left: 2.1%;
+}
+
 .btn_like{
     background: rgba(94,255,113,1);
     background: -moz-linear-gradient(-45deg, rgba(94,255,113,1) 0%, rgba(77,222,145,1) 100%);

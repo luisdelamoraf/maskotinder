@@ -4,15 +4,13 @@ ubicacion()
 let IndiceEliminar;
 let indice;
 async function ubicacion(){
-  let z = await fetch(`http://localhost:3000/usuario`,{
+ let USR = await fetch(`http://localhost:3000/api/users`,{
     method:"GET",
-    headers:{"Content-Type": 'application/json'
-    // ,
-    // "x-auth": localStorage.token,
-    // "x-user-token": localStorage.token_usr 
+    headers:{"Content-Type": 'application/json',
+    "x-user-token": localStorage.token_usr 
     }
 })
-let valores_ubi = await z.json()
+let valores_ubi = await USR.json()
     let HTML_ubi = `
     <h6>Ubicación</h6>
     <h6>${valores_ubi.ubicacion}</h6>`

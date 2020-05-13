@@ -1,7 +1,7 @@
 const express = require("express");
 const randomize = require("randomatic");
 const app = express()
-const port = 3000;
+const port =  process.env.PORT || 3000;
 const mongoose = require('./db/mongodb-connect');
 const usuariosRouter = require("./routes/usuarios");
 const mascotasRouter = require("./routes/mascotas");

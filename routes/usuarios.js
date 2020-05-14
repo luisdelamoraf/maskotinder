@@ -27,6 +27,7 @@ router.put("/api/users",autenticacion, async (req,res)=>{
         res.status(400).send({ERROR:err});
     }
 })
+
 router.get("/api/UnUsuario",autenticacion, async (req, res)=>{
     let usr = await usuario.UnUsuario(req.get("IdUsuario"))
     res.status(200).send(usr)
@@ -40,29 +41,12 @@ router.delete("/api/users",autenticacion, async (req,res)=>{
         res.status(400).send({ERROR:err});
     }
 })
-// router.get('/:id', async (req,res) => {
-//     let id = Number(req.params.id);
-//     let usuario = await usuario.findOne({id});
-//     res.status(200).send(usuario);
-// });
-// router.post('/',async(req,res)=> {
-//     console.log(req.body);
-//     let LastID = await usuario.findOne({sort: {id: -1}})
-//     req.body.id = LastID.id+1;
-//     console.log(req.body);
-//     let usuario = await usuario(req.body).save()
-//     res.status(200).send()
-// });
 
 router.post("/api/login", validarLogin, validarExistenciaLogin, (req, res) => {
     let token = jwt.sign({correo:req.body.correo}, 'Labredes1');
         console.log(token);
         res.status(200).send({token});
     })
-
-    
-
-
 
 //Middlewares a rutas
 

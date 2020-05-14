@@ -13,16 +13,17 @@ router.post("/api/mascotas",autenticacion, async (req, res) => {
           res.status(400).send({ERROR:err});
       }
 })
+
 router.get("/api/mascotas",autenticacion, async (req, res)=>{
     let msc = await mascota.ObtenerMascota(correo)
     res.status(200).send(msc)
 })
+
 router.get("/api/UnaMascota",autenticacion, async (req, res)=>{
     console.log(req.get("IdMascota"));
     let msc = await mascota.UnaMascota(req.get("IdMascota"))
     res.status(200).send(msc)
 })
-
 
 router.get("/api/CatalogoMascotas",autenticacion, async (req,res)=>{
     if(req.get("Filtro")){
@@ -75,6 +76,15 @@ router.get("/api/mascotasLike",autenticacion, async (req,res)=>{
 router.get("/api/mascotasQuitar",autenticacion, async (req,res)=>{
     let favs = await mascota.QuitarFavs(correo, req.get("idMascota"))
     res.status(200).send(favs)
+})
+
+router.put("/api/mascotasEditar",autenticacion, async (req,res)=>{
+    try{
+        let msct = await mascota.ActualizarMascota(req.body)
+        res.status(200).send(msct)
+    }catch(err){
+        res.status(400).send({ERROR:err});
+    }
 })
 
 //Middleware a rutas

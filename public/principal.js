@@ -1,11 +1,12 @@
-if(localStorage.Filtro){
-    obtenerMascotaFiltro()
-}else{
-    obtenerMascota()
-}
-
 let cont = 0
 let msct_JSON
+
+if(localStorage.Filtro){
+    obtenerMascotaFiltro()
+
+}else{
+    obtenerMascota() 
+}
 
 function siguienteMasc(){
     cont++
@@ -84,6 +85,7 @@ async function obtenerMascotaFiltro(){
         }
 })
 let arreglo_Msct = await msct.json()
+document.getElementById("banner").innerHTML = `<p>Encontramos ${arreglo_Msct.length} mascotas para ti</p>`
 if(cont+1 > arreglo_Msct.length){
     HTML_Mascota =`<h4>&nbsp No hay mas mascotas con este criterio de busqueda</h4>`
     document.getElementById("carta_mascota").innerHTML = HTML_Mascota
@@ -140,6 +142,7 @@ async function obtenerMascota(){
         }
 })
 let arreglo_Msct = await msct.json()
+document.getElementById("banner").innerHTML = `<p>Encontramos ${arreglo_Msct.length} mascotas para ti</p>`
 if(cont+1 > arreglo_Msct.length){
     HTML_Mascota =`<h4>&nbsp No hay mas mascotas con este criterio de busqueda</h4>`
     document.getElementById("carta_mascota").innerHTML = HTML_Mascota

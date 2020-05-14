@@ -47,7 +47,6 @@ usuarioSchema.statics.RegistrarUsuario = (datosUsuario)=>{
     datosUsuario.acomodos= 0,
     datosUsuario.ubicacion= "No establecida"
     let nuevoUsuario = usuario(datosUsuario)
-    console.log(nuevoUsuario);
     return nuevoUsuario.save()
 }
 
@@ -59,7 +58,6 @@ usuarioSchema.statics.ObtenerUsuario = async (correo)=>{
 }
 usuarioSchema.statics.UnUsuario = async (idUsr)=>{
     let USR = await usuario.findOne({id:idUsr},{_id:0})
-    console.log(USR);
     return USR
 }
 
@@ -73,7 +71,6 @@ usuarioSchema.statics.ActualizarUsuario = async(datosUsuario)=>{
         url: datosUsuario.url,
         ubicacion: datosUsuario.ubicacion 
     })
-    console.log(ActualizarUsuario);
     return ActualizarUsuario
 }
 

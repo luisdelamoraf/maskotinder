@@ -83,6 +83,7 @@ MascotaSchema.statics.ObtenerMascota = async (correo)=>{
     let MSC = await mascota.find({id_dueño:USR.id},{_id:0})
     return MSC
 }
+
 MascotaSchema.statics.UnaMascota = async (idMsct)=>{
     let MSC = await mascota.findOne({id_mascota:idMsct},{_id:0})
     return MSC
@@ -154,7 +155,8 @@ MascotaSchema.statics.ActualizarMascota = async(datosMascota)=>{
         cumpleaños: datosMascota.cumpleaños,
         url1: datosMascota.url1,
         url2: datosMascota.url2,
-        url3: datosMascota.url3
+        url3: datosMascota.url3,
+        ubicacion: datosMascota.ubicacion
     })
     return ActualizarMascota
 }

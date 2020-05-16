@@ -20,7 +20,6 @@ router.get("/api/mascotas",autenticacion, async (req, res)=>{
 })
 
 router.get("/api/UnaMascota",autenticacion, async (req, res)=>{
-    console.log(req.get("IdMascota"));
     let msc = await mascota.UnaMascota(req.get("IdMascota"))
     res.status(200).send(msc)
 })

@@ -153,8 +153,8 @@ MascotaSchema.statics.ActualizarMascota = async(datosMascota)=>{
         sexo: datosMascota.sexo, 
         cumpleaños: datosMascota.cumpleaños,
         url1: datosMascota.url1,
-        url1: datosMascota.url2,
-        url1: datosMascota.url3
+        url2: datosMascota.url2,
+        url3: datosMascota.url3
     })
     return ActualizarMascota
 }

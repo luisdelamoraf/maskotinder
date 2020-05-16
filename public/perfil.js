@@ -23,7 +23,7 @@ async function EditarMascota(id) {
     let sexo = valores_msct.sexo;
     let cumpleaños = valores_msct.cumpleaños;
     let url1 = valores_msct.url1;
-    let url2 = valores_msct.url3;
+    let url2 = valores_msct.url2;
     let url3 = valores_msct.url3;
   
     $("#especieMSCT").val(especie)

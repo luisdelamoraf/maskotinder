@@ -1,6 +1,7 @@
 let IndiceEliminar;
 let indice;
-let IndiceEditar
+let IndiceEditar;
+let ubicacion
 
 ObtenerUsuario()
 obtenerMascota()
@@ -55,7 +56,8 @@ async function ActualizarMascota() {
         "cumpleaños": Reg_cumpleaños,
         "url1": Reg_url1,
         "url2": Reg_url2,
-        "url3": Reg_url3
+        "url3": Reg_url3,
+        "ubicacion": ubicacion
     }
     let regJson = JSON.stringify(Reg);
     let x = await fetch("/api/mascotasEditar", {
@@ -84,6 +86,7 @@ async function ObtenerUsuario() {
         }
     })
     let usr_JSON = await usr.json()
+    ubicacion = usr_JSON.ubicacion
     let HTML_Usuario = `<p align="right"><a href="Configuración.html">Editar</a></p>
 <img class ="imagen_perfil" src="${usr_JSON.url}" alt="">
 <div class="carta-perfil-body">
